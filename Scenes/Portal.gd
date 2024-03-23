@@ -21,8 +21,17 @@ func update_open():
 	$Sprite2D.texture = portal_on if (open)  else portal_off
 
 func _on_click():
-	instantiate_demon(demon_scene)
+	if (open):
+		instantiate_demon(demon_scene)
 
+var time := 0.0
+
+func _process(delta):
+	time += delta
+	if (open):
+		$Sprite2D.modulate = Color($Sprite2D.modulate, sin(time*5)/3+0.66)
+	elif (!open):
+		$Sprite2D.modulate = Color($Sprite2D.modulate, 0.4)
 
 func instantiate_demon(scene : PackedScene):
 	var instance : Node2D = scene.instantiate()

@@ -32,15 +32,15 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Line" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(35, 43)
+position = Vector2(20, 38)
 metadata/_edit_group_ = true
 
 [node name="Line2" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(34, 127)
+position = Vector2(20, 119)
 metadata/_edit_group_ = true
 
 [node name="Line3" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(32, 208)
+position = Vector2(21, 197)
 metadata/_edit_group_ = true
 
 [node name="UI" type="Control" parent="."]
