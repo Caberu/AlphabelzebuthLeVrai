@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bygt84rs3dgjv"
-path="res://.godot/imported/bat_animation_0002.png-54eb72d1ca9f183368717fb8f81b7b4b.ctex"
+uid="uid://c31m2t0ub326n"
+path="res://.godot/imported/minotaure_animation_walk1.png-ff4ae5a9e4cd2d6b945bef6dc8ef2946.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bat_animation_0002.png"
-dest_files=["res://.godot/imported/bat_animation_0002.png-54eb72d1ca9f183368717fb8f81b7b4b.ctex"]
+source_file="res://Sprites/skeleton/minotaure_animation_walk1.png"
+dest_files=["res://.godot/imported/minotaure_animation_walk1.png-ff4ae5a9e4cd2d6b945bef6dc8ef2946.ctex"]
 
 [params]
 

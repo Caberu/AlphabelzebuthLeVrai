@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cok3qqmyd7y3t"
-path="res://.godot/imported/slime_animation_walk2.png-91de448c09ee23c34e1d533b643b4039.ctex"
+uid="uid://b2r4ui80jm6kj"
+path="res://.godot/imported/minotaure_animation_walk1.png-8e55fdca1b2af0708c844d4efc67b16b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/slime_animation_walk2.png"
-dest_files=["res://.godot/imported/slime_animation_walk2.png-91de448c09ee23c34e1d533b643b4039.ctex"]
+source_file="res://Sprites/minotaure/minotaure_animation_walk1.png"
+dest_files=["res://.godot/imported/minotaure_animation_walk1.png-8e55fdca1b2af0708c844d4efc67b16b.ctex"]
 
 [params]
 

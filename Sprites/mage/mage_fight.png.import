@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bli4rl1hbatas"
-path="res://.godot/imported/slime_animation_walk1.png-8734cf9cad7c312c99175d3e80ea2931.ctex"
+uid="uid://7bq3fshewstd"
+path="res://.godot/imported/mage_fight.png-9eefe519bc9ec691bb7066ce59cb1bd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/slime_animation_walk1.png"
-dest_files=["res://.godot/imported/slime_animation_walk1.png-8734cf9cad7c312c99175d3e80ea2931.ctex"]
+source_file="res://Sprites/mage/mage_fight.png"
+dest_files=["res://.godot/imported/mage_fight.png-9eefe519bc9ec691bb7066ce59cb1bd1.ctex"]
 
 [params]
 
