@@ -26,3 +26,11 @@ func get_letter_count(letter : String) -> int:
 
 func check_correctness(word : String) -> bool:
 	return $"../LeFrench".word_valid(word)
+
+func remove_word(word : String):
+	for l in word:
+		remove_letter(l)
+
+func add_word(word : String):
+	for l in word:
+		add_letter(l)
