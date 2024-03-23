@@ -12,6 +12,7 @@ var open := false
 
 func _ready():
 	word.on_update_correctness.connect(on_update_correctness)
+	on_update_correctness()
 
 func on_update_correctness():
 	open = word.correct

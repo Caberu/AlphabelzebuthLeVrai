@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=14 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
 [ext_resource type="Texture2D" uid="uid://cr4bb3wh6cfjd" path="res://WhiteSquare.png" id="1_m3me3"]
@@ -12,8 +12,7 @@
 [ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
 [ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
-[ext_resource type="PackedScene" path="res://Scenes/letterUI.tscn" id="8_o77af"]
-[ext_resource type="PackedScene" path="res://Scenes/letter.tscn" id="10_4klt4"]
+[ext_resource type="Texture2D" uid="uid://5aqxi4x1qus" path="res://Sprites/pentacle.png" id="13_vwd2l"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -115,6 +114,11 @@ letter = "B"
 
 [node name="LeFrench" type="Node" parent="."]
 script = ExtResource("11_d2and")
+
+[node name="PentacleTest" type="Sprite2D" parent="."]
+position = Vector2(469, 303)
+scale = Vector2(0.84, 0.84)
+texture = ExtResource("13_vwd2l")
 
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
