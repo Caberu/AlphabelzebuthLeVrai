@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://g533147ngkau"]
+
+[ext_resource type="PackedScene" uid="uid://dtrwq3et5voj1" path="res://Scenes/portal.tscn" id="1_vapga"]
+
+[node name="Line" type="Node2D"]
+
+[node name="Portal" parent="." instance=ExtResource("1_vapga")]
+position = Vector2(14, 60)
+
+[node name="Demons" type="Node2D" parent="."]

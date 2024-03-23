@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djl1ybkb07f4j"]
+
+[ext_resource type="Texture2D" uid="uid://eg3ym6wuv8sl" path="res://sprite_alphabelzebuth.png" id="1_lbbgl"]
+[ext_resource type="Script" path="res://Walk.gd" id="2_o56tq"]
+
+[node name="Demon" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_lbbgl")
+centered = false
+offset = Vector2(0, -24)
+
+[node name="Walk" type="Node2D" parent="."]
+script = ExtResource("2_o56tq")

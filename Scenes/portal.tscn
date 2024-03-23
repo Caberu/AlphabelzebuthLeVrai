@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtrwq3et5voj1"]
+
+[ext_resource type="Script" path="res://Scenes/Portal.gd" id="1_52sgi"]
+[ext_resource type="PackedScene" uid="uid://djl1ybkb07f4j" path="res://Scenes/demon.tscn" id="2_mrf0j"]
+
+[node name="Portal" type="Node2D"]
+script = ExtResource("1_52sgi")
+demon_scene = ExtResource("2_mrf0j")
+
+[node name="Button" type="Button" parent="."]
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = 20.0
+flat = true
+
+[connection signal="button_down" from="Button" to="." method="_on_click"]
