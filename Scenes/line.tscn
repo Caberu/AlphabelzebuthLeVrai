@@ -5,6 +5,5 @@
 [node name="Line" type="Node2D"]
 
 [node name="Portal" parent="." instance=ExtResource("1_vapga")]
-position = Vector2(14, 60)
 
 [node name="Demons" type="Node2D" parent="."]

@@ -5,8 +5,8 @@ extends TextEdit
 func _ready():
 	grab_focus()
 
-
-
+func _process(delta):
+	set_caret_column(text.length())
 
 func _on_text_changed():
 	text = text.replace("\n","")
