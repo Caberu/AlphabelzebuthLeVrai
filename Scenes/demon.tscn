@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Walk.gd" id="2_o56tq"]
 [ext_resource type="Script" path="res://Scenes/DemonCreator.gd" id="5_7vdbd"]
 
-[node name="Demon" type="Node2D"]
+[node name="Demon" type="Node2D" groups=["Demons"]]
 
 [node name="Damageable" parent="." instance=ExtResource("1_3b6n3")]
 
