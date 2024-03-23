@@ -1,4 +1,6 @@
+RichTextLabel
 Label
+HBoxContainer
 Node2D
 Button
 ItemList

@@ -2,3 +2,8 @@ res://Scenes/main.tscn
 res://Scenes/demon.tscn
 res://Scenes/line.tscn
 res://Scenes/portal.tscn
+res://Scenes/letterUI.tscn
+res://Scenes/Alphabet.gd
+res://Scenes/LetterStockContainer.gd
+res://Scenes/letterUI.gd
+res://Scenes/Letter.gd

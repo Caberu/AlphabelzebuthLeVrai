@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0pt6m6wg6k36"]
+
+[ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="1_t7q5h"]
+[ext_resource type="Script" path="res://Scenes/letterUI.gd" id="2_7qrty"]
+
+[node name="LetterUI" type="Label"]
+modulate = Color(0.109804, 0.109804, 0.109804, 1)
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource("1_t7q5h")
+text = "A"
+script = ExtResource("2_7qrty")
+
+[node name="Color" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t7q5h")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "A"
+scroll_active = false

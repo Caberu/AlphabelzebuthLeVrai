@@ -5,3 +5,10 @@ extends TextEdit
 func _ready():
 	grab_focus()
 
+
+
+
+func _on_text_changed():
+	text = text.replace("\n","")
+	text = text.replace(" ","")
+	set_caret_column(text.length())

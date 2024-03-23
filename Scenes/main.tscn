@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=11 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
 [ext_resource type="Texture2D" uid="uid://cr4bb3wh6cfjd" path="res://WhiteSquare.png" id="1_m3me3"]
 [ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="1_ulj3d"]
 [ext_resource type="Texture2D" uid="uid://cay3rdbl7j86m" path="res://Sprites/background_cave.png" id="2_5jes4"]
 [ext_resource type="PackedScene" uid="uid://g533147ngkau" path="res://Scenes/line.tscn" id="3_avtcv"]
-[ext_resource type="Texture2D" uid="uid://eg3ym6wuv8sl" path="res://sprite_alphabelzebuth.png" id="3_tmxkr"]
-[ext_resource type="Texture2D" uid="uid://eykk6j57ug47" path="res://new4skeleton.png" id="4_05ydq"]
+[ext_resource type="Script" path="res://Scenes/IncantationDisplay.gd" id="6_htmfq"]
+[ext_resource type="Script" path="res://Scenes/LetterStockContainer.gd" id="7_dv6vc"]
+[ext_resource type="Script" path="res://Scenes/Alphabet.gd" id="7_od6r7"]
+[ext_resource type="PackedScene" uid="uid://b0pt6m6wg6k36" path="res://Scenes/letterUI.tscn" id="8_o77af"]
+[ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -30,11 +33,11 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Line2" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(0, 80)
+position = Vector2(0, 65)
 metadata/_edit_group_ = true
 
 [node name="Line3" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(0, 160)
+position = Vector2(0, 135)
 metadata/_edit_group_ = true
 
 [node name="UI" type="Control" parent="."]
@@ -46,6 +49,7 @@ offset_right = 559.0
 offset_bottom = 647.0
 
 [node name="TextEdit" type="TextEdit" parent="UI"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -55,6 +59,7 @@ offset_top = -376.0
 offset_right = -89.0
 offset_bottom = -321.0
 theme = ExtResource("1_ulj3d")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 33
 placeholder_text = "..."
 context_menu_enabled = false
@@ -67,22 +72,50 @@ caret_move_on_right_click = false
 caret_multiple = false
 script = ExtResource("1_igarf")
 
-[node name="Label" type="Label" parent="UI/TextEdit"]
+[node name="IncantationDisplay" type="Label" parent="UI"]
 layout_mode = 0
-offset_right = 473.0
-offset_bottom = 58.0
+offset_left = -540.0
+offset_top = -370.0
+offset_right = -67.0
+offset_bottom = -312.0
 theme = ExtResource("1_ulj3d")
 theme_override_font_sizes/font_size = 33
+text = "Quoicoubelzebuth"
+max_lines_visible = 1
+script = ExtResource("6_htmfq")
 
-[node name="Test" type="Node2D" parent="."]
+[node name="LetterStockContainer" type="HBoxContainer" parent="UI" node_paths=PackedStringArray("alphabet")]
+layout_mode = 0
+offset_left = -558.0
+offset_top = -308.0
+offset_right = -90.0
+offset_bottom = -289.0
+script = ExtResource("7_dv6vc")
+alphabet = NodePath("../../Alphabet")
+letterUI_scene = ExtResource("8_o77af")
 
-[node name="New4Skeleton" type="Sprite2D" parent="Test"]
-position = Vector2(119, 138)
-texture = ExtResource("4_05ydq")
+[node name="LetterUI" parent="UI/LetterStockContainer" instance=ExtResource("8_o77af")]
+layout_mode = 2
+scroll_active = false
+shortcut_keys_enabled = false
 
-[node name="SpriteAlphabelzebuth" type="Sprite2D" parent="Test"]
-position = Vector2(237, 137)
-texture = ExtResource("3_tmxkr")
+[node name="LetterUI2" parent="UI/LetterStockContainer" instance=ExtResource("8_o77af")]
+layout_mode = 2
+scroll_active = false
+
+[node name="Alphabet" type="Node2D" parent="." groups=["Alphabet"]]
+script = ExtResource("7_od6r7")
+
+[node name="Letter" parent="." instance=ExtResource("10_4klt4")]
+position = Vector2(203, 117)
+letter = "A"
+
+[node name="Letter2" parent="." instance=ExtResource("10_4klt4")]
+position = Vector2(288, 112)
+letter = "B"
+
+[connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
+[connection signal="text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 
 [editable path="Game/Line"]
 [editable path="Game/Line/Portal"]
