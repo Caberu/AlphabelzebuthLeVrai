@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/IncantationDisplay.gd" id="6_htmfq"]
 [ext_resource type="Script" path="res://Scenes/LetterStockContainer.gd" id="7_dv6vc"]
 [ext_resource type="Script" path="res://Scenes/Alphabet.gd" id="7_od6r7"]
-[ext_resource type="PackedScene" uid="uid://b0pt6m6wg6k36" path="res://Scenes/letterUI.tscn" id="8_o77af"]
+[ext_resource type="PackedScene" path="res://Scenes/letterUI.tscn" id="8_o77af"]
 [ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
 [ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
