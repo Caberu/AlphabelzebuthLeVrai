@@ -8,12 +8,10 @@
 [ext_resource type="Script" path="res://Scenes/IncantationDisplay.gd" id="6_htmfq"]
 [ext_resource type="Script" path="res://Scenes/LetterStockContainer.gd" id="7_dv6vc"]
 [ext_resource type="Script" path="res://Scenes/Alphabet.gd" id="7_od6r7"]
-[ext_resource type="PackedScene" uid="uid://b0pt6m6wg6k36" path="res://Scenes/letterUI.tscn" id="8_o77af"]
-[ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
-[ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
-[ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
 [ext_resource type="PackedScene" path="res://Scenes/letterUI.tscn" id="8_o77af"]
+[ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
 [ext_resource type="PackedScene" path="res://Scenes/letter.tscn" id="10_4klt4"]
+[ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -116,7 +114,6 @@ letter = "B"
 [node name="LeFrench" type="Node" parent="."]
 script = ExtResource("11_d2and")
 
-[connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
 
 [editable path="Game/Line"]
