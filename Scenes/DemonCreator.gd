@@ -1,7 +1,7 @@
 extends Node2D
 
 func get_hp(demon_name : String) -> int:
-	return int(float(len(demon_name))/2)
+	return int(float(len(demon_name)))
 
 func get_sprite(demon_name : String) -> Texture2D:
 	return load("res://sprite_alphabelzebuth.png")
