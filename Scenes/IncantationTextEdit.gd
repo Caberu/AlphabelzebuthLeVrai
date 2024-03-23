@@ -1,6 +1,9 @@
 extends TextEdit
 
 @onready var word : Word = $"../../Word"
+var old_text := ""
+
+signal on_true_text_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +15,10 @@ func _process(delta):
 func _on_text_changed():
 	text = text.replace("\n","")
 	text = text.replace(" ","")
-	set_caret_column(text.length())
 	if !$"../../Word".has_enough_letters(text):
-		backspace(get_caret_line())
+		text =  old_text
+	set_caret_column(text.length())
 	word.change_word(text)
-	
+	on_true_text_changed.emit()
+	old_text = text
 	
