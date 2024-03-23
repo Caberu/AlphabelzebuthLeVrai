@@ -12,7 +12,6 @@ func _ready():
 		if child is HealthBar:
 			health_bar = child
 			health_bar.max_val = max_hp
-			print("set bar")
 			break
 
 
