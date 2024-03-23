@@ -1,0 +1,61 @@
+[gd_scene load_steps=16 format=3 uid="uid://ummbelsaodwn"]
+
+[ext_resource type="Texture2D" uid="uid://c008qhw1gq6n7" path="res://Sprites/bat/bat_animation_0001.png" id="1_r5w0q"]
+[ext_resource type="Animation" uid="uid://bjbbsjc8e5nxc" path="res://Animation/sprite_animation/bat_idle.res" id="2_oktjl"]
+[ext_resource type="Animation" uid="uid://c43jkpdygb4be" path="res://Animation/sprite_animation/slime_idle.res" id="3_irky3"]
+[ext_resource type="Animation" uid="uid://c80cmnfgh3kgs" path="res://Animation/sprite_animation/templar_idle.res" id="4_38iqf"]
+[ext_resource type="Animation" uid="uid://c4d37l6380a01" path="res://Animation/sprite_animation/templar_fight.res" id="5_u0pij"]
+[ext_resource type="Animation" uid="uid://2hwvady5u4bo" path="res://Animation/sprite_animation/skeleton_run.res" id="6_lcgf3"]
+[ext_resource type="Animation" uid="uid://fyuhgdfo5f3c" path="res://Animation/sprite_animation/skeleton_fight.res" id="7_rqffn"]
+[ext_resource type="Animation" uid="uid://bxowmdjwp5uyn" path="res://Animation/sprite_animation/minotaure_run.res" id="8_8tjvw"]
+[ext_resource type="Animation" uid="uid://csg4uo0tho2a4" path="res://Animation/sprite_animation/minautore_fight.res" id="9_i37js"]
+[ext_resource type="Animation" uid="uid://c5b8hiuc0kije" path="res://Animation/sprite_animation/mage_run.res" id="10_hs3g7"]
+[ext_resource type="Animation" uid="uid://2hjw475ymak3" path="res://Animation/sprite_animation/mage_fight.res" id="11_v4cns"]
+[ext_resource type="Animation" uid="uid://bnymb4aeottgu" path="res://Animation/sprite_animation/archer_run.res" id="12_omm68"]
+[ext_resource type="Animation" uid="uid://cq0ef2xyguhfl" path="res://Animation/sprite_animation/archer_fight.res" id="13_5s4l1"]
+
+[sub_resource type="Animation" id="Animation_05nfa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("1_r5w0q")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0jab"]
+_data = {
+"RESET": SubResource("Animation_05nfa"),
+"archer_fight": ExtResource("13_5s4l1"),
+"archer_run": ExtResource("12_omm68"),
+"bat_idle": ExtResource("2_oktjl"),
+"mage_fight": ExtResource("11_v4cns"),
+"mage_run": ExtResource("10_hs3g7"),
+"minautore_fight": ExtResource("9_i37js"),
+"minotaure_run": ExtResource("8_8tjvw"),
+"skeleton_fight": ExtResource("7_rqffn"),
+"skeleton_run": ExtResource("6_lcgf3"),
+"slime_idle": ExtResource("3_irky3"),
+"templar_fight": ExtResource("5_u0pij"),
+"templar_idle": ExtResource("4_38iqf")
+}
+
+[node name="Animtestmartin" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b0jab")
+}
+autoplay = "bat_idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-40, 24)
+texture = ExtResource("1_r5w0q")
+offset = Vector2(40, -40)
