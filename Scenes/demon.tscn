@@ -1,14 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://djl1ybkb07f4j"]
+[gd_scene load_steps=6 format=3 uid="uid://djl1ybkb07f4j"]
 
+[ext_resource type="PackedScene" uid="uid://cakmet6mwokxa" path="res://Scenes/Damageable.tscn" id="1_3b6n3"]
 [ext_resource type="Texture2D" uid="uid://eg3ym6wuv8sl" path="res://sprite_alphabelzebuth.png" id="1_lbbgl"]
+[ext_resource type="PackedScene" uid="uid://bjx8yint5edim" path="res://Scenes/DemonName.tscn" id="2_jdnh7"]
 [ext_resource type="Script" path="res://Walk.gd" id="2_o56tq"]
+[ext_resource type="Script" path="res://Scenes/DemonCreator.gd" id="5_7vdbd"]
 
 [node name="Demon" type="Node2D"]
 
+[node name="Damageable" parent="." instance=ExtResource("1_3b6n3")]
+
+[node name="DemonName" parent="." instance=ExtResource("2_jdnh7")]
+position = Vector2(13, -30)
+
 [node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("1_lbbgl")
 centered = false
 offset = Vector2(0, -24)
 
 [node name="Walk" type="Node2D" parent="."]
 script = ExtResource("2_o56tq")
+
+[node name="DemonCreator" type="Node2D" parent="."]
+script = ExtResource("5_7vdbd")
