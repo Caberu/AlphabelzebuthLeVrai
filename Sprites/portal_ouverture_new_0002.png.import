@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8ag8x1n42vvp"
-path="res://.godot/imported/a.png-d93e7506098bedf27bf38cd7e4712275.ctex"
+uid="uid://bu6pow4aj8h4h"
+path="res://.godot/imported/portal_ouverture_new_0002.png-b882668d06674c1b3818102a472d88a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/lettre/a.png"
-dest_files=["res://.godot/imported/a.png-d93e7506098bedf27bf38cd7e4712275.ctex"]
+source_file="res://Sprites/portal_ouverture_new_0002.png"
+dest_files=["res://.godot/imported/portal_ouverture_new_0002.png-b882668d06674c1b3818102a472d88a4.ctex"]
 
 [params]
 

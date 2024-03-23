@@ -12,8 +12,6 @@
 [ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
 [ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
-[ext_resource type="PackedScene" path="res://Scenes/letterUI.tscn" id="8_o77af"]
-[ext_resource type="PackedScene" path="res://Scenes/letter.tscn" id="10_4klt4"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -34,15 +32,15 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Line" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(20, 38)
+position = Vector2(35, 43)
 metadata/_edit_group_ = true
 
 [node name="Line2" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(20, 119)
+position = Vector2(34, 127)
 metadata/_edit_group_ = true
 
 [node name="Line3" parent="Game" instance=ExtResource("3_avtcv")]
-position = Vector2(21, 197)
+position = Vector2(32, 208)
 metadata/_edit_group_ = true
 
 [node name="UI" type="Control" parent="."]
@@ -116,8 +114,8 @@ letter = "B"
 [node name="LeFrench" type="Node" parent="."]
 script = ExtResource("11_d2and")
 
-[connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
+[connection signal="text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 
 [editable path="Game/Line"]
 [editable path="Game/Line/Portal"]
