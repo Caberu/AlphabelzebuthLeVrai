@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://Scenes/letterUI.gd" id="2_7qrty"]
 
 [node name="LetterUI" type="Label"]
-size_flags_horizontal = 2
+self_modulate = Color(0.0705882, 0.0705882, 0.0705882, 1)
+size_flags_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource("1_t7q5h")
 text = "A"
@@ -15,10 +16,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_t7q5h")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "A"
+text = "A[color=#A00000]5"
 scroll_active = false

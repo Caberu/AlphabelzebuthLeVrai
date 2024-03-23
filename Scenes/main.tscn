@@ -94,15 +94,6 @@ script = ExtResource("7_dv6vc")
 alphabet = NodePath("../../Alphabet")
 letterUI_scene = ExtResource("8_o77af")
 
-[node name="LetterUI" parent="UI/LetterStockContainer" instance=ExtResource("8_o77af")]
-layout_mode = 2
-scroll_active = false
-shortcut_keys_enabled = false
-
-[node name="LetterUI2" parent="UI/LetterStockContainer" instance=ExtResource("8_o77af")]
-layout_mode = 2
-scroll_active = false
-
 [node name="Alphabet" type="Node2D" parent="." groups=["Alphabet"]]
 script = ExtResource("7_od6r7")
 

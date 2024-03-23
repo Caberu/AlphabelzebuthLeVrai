@@ -13,5 +13,5 @@ func set_n(_n : int):
 		text = ""
 		$Color.text = ""
 	else:
-		text = letter+str(n)
-		$Color.text = letter+"[color=#777777]"+str(n)
+		text = letter+str(n)+" "
+		$Color.text = letter+"[color=#BB0000]"+str(n)
