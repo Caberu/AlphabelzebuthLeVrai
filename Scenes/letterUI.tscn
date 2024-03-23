@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Scenes/letterUI.gd" id="2_7qrty"]
 
 [node name="LetterUI" type="Label"]
-modulate = Color(0.109804, 0.109804, 0.109804, 1)
 size_flags_horizontal = 2
 size_flags_vertical = 3
 theme = ExtResource("1_t7q5h")
