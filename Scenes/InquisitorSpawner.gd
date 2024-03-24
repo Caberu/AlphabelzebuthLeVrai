@@ -17,7 +17,7 @@ func get_dmg(val : int) -> int:
 	return 1
 
 func get_hp(val : int) -> int:
-	return val
+	return max(int(float(val)/3), 1)
 
 func get_sprite(val : int) -> String:
 	if val <= 5:
