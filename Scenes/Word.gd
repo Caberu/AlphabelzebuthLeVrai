@@ -2,7 +2,7 @@ class_name Word extends Node
 
 var correct := false
 var word := ""
-@onready var alphabet : Alphabet =  $"../Alphabet"
+@onready var alphabet : Alphabet = $"../Alphabet"
 @onready var sound_player := AudioStreamPlayer.new()
 
 var unavailbale_names := {} #hash map (en plus, true si il est au paradi)
