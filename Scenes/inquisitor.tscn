@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bup37rgqftpbv"]
+[gd_scene load_steps=11 format=3 uid="uid://bup37rgqftpbv"]
 
 [ext_resource type="PackedScene" uid="uid://cakmet6mwokxa" path="res://Scenes/Damageable.tscn" id="1_q5s4f"]
 [ext_resource type="Script" path="res://Scenes/LetterHead.gd" id="3_0il5a"]
 [ext_resource type="Texture2D" uid="uid://eg3ym6wuv8sl" path="res://sprite_alphabelzebuth.png" id="3_pgmq4"]
-[ext_resource type="PackedScene" path="res://Scenes/lettre_gfx.tscn" id="3_q5x2v"]
+[ext_resource type="PackedScene" uid="uid://itngke55wthn" path="res://Scenes/lettre_gfx.tscn" id="3_q5x2v"]
 [ext_resource type="Script" path="res://Walk.gd" id="4_d12do"]
 [ext_resource type="Script" path="res://Scenes/Death_inquisitor.gd" id="5_qfv3r"]
-[ext_resource type="AnimationLibrary" uid="uid://dg6hj5r7vwpuc" path="res://Animation/mobs.tres" id="6_c0q78"]
+[ext_resource type="AnimationLibrary" path="res://Animation/mobs.tres" id="6_c0q78"]
+[ext_resource type="Script" path="res://Scenes/ArriveAtEdge.gd" id="8_2vmqi"]
 
 [sub_resource type="Animation" id="Animation_oruni"]
 length = 0.001
@@ -58,5 +59,8 @@ libraries = {
 "": SubResource("AnimationLibrary_0hacn"),
 "mobs": ExtResource("6_c0q78")
 }
+
+[node name="ArriveAtEdge" type="Node2D" parent="."]
+script = ExtResource("8_2vmqi")
 
 [connection signal="death" from="Damageable" to="Death" method="_on_damageable_death"]

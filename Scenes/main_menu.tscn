@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://dn5tsw7mjnqe0"]
+
+[ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_jhb6p"]
+[ext_resource type="Texture2D" uid="uid://c5s8vaqt5e10y" path="res://Scenes/ecran_titre_final.png" id="1_mt0hu"]
+[ext_resource type="Texture2D" uid="uid://cr4bb3wh6cfjd" path="res://WhiteSquare.png" id="2_fxgdc"]
+[ext_resource type="Script" path="res://Scenes/StartButton.gd" id="2_qxxp0"]
+[ext_resource type="Script" path="res://Scenes/Grow.gd" id="3_ctw0o"]
+[ext_resource type="Texture2D" uid="uid://d084u16r3h0qm" path="res://Scenes/start_buton2_0001.png" id="3_yr2qm"]
+[ext_resource type="Texture2D" uid="uid://b5fjxgqrx5c6k" path="res://Sprites/parchemin/parchemin_animation1.png" id="4_f632s"]
+[ext_resource type="Animation" uid="uid://b26i37jbnobn0" path="res://parchemin2.res" id="5_0bfyi"]
+[ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="5_0lp6l"]
+[ext_resource type="Texture2D" uid="uid://cy4qelsbir1ni" path="res://Sprites/parchemin2/7.png" id="5_xtdwf"]
+[ext_resource type="Script" path="res://Scenes/MoveUp.gd" id="6_2tlpp"]
+[ext_resource type="Script" path="res://Scenes/ParcheminLore.gd" id="6_vip2t"]
+
+[sub_resource type="Curve" id="Curve_cp3f5"]
+max_value = 1.1
+_data = [Vector2(0.232733, 0), 0.0, 0.657971, 0, 0, Vector2(0.704204, 0.324829), 1.58634, 1.58634, 0, 0, Vector2(0.968468, 1.04788), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.275192, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Animation" id="Animation_20p12"]
+resource_name = "parcheminClose"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_xtdwf")]
+}
+
+[sub_resource type="Animation" id="Animation_cxwpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_f632s")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ko1f"]
+_data = {
+"RESET": SubResource("Animation_cxwpc"),
+"parchemin2": ExtResource("5_0bfyi"),
+"parcheminClose": SubResource("Animation_20p12")
+}
+
+[node name="MainMenu" type="Node2D" groups=["Camera"]]
+texture_filter = 1
+script = ExtResource("1_jhb6p")
+
+[node name="FondNoir" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(315, 185.5)
+scale = Vector2(49.1875, 29.3125)
+texture = ExtResource("2_fxgdc")
+
+[node name="Parchemin" type="Node2D" parent="."]
+position = Vector2(320, 160)
+
+[node name="Grow" type="Node2D" parent="Parchemin"]
+script = ExtResource("3_ctw0o")
+curve = SubResource("Curve_cp3f5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Parchemin"]
+libraries = {
+"": SubResource("AnimationLibrary_8ko1f")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Parchemin"]
+position = Vector2(-320, -160)
+texture = ExtResource("4_f632s")
+centered = false
+
+[node name="ParcheminLore" type="Node2D" parent="Parchemin"]
+script = ExtResource("6_vip2t")
+
+[node name="EcranTitreFinal" type="Sprite2D" parent="."]
+texture = ExtResource("1_mt0hu")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="EcranTitreFinal"]
+position = Vector2(304, 308)
+texture = ExtResource("3_yr2qm")
+
+[node name="StartAnim" type="Node2D" parent="EcranTitreFinal" node_paths=PackedStringArray("sprite")]
+position = Vector2(223, 288)
+script = ExtResource("2_qxxp0")
+sprite = NodePath("../Sprite2D")
+
+[node name="CamShake" parent="EcranTitreFinal/StartAnim" instance=ExtResource("5_0lp6l")]
+time = 4.0
+force = 2.0
+
+[node name="MoveUp" type="Node2D" parent="EcranTitreFinal/StartAnim"]
+script = ExtResource("6_2tlpp")
+
+[node name="Start" type="Button" parent="EcranTitreFinal"]
+offset_left = 223.0
+offset_top = 278.0
+offset_right = 387.0
+offset_bottom = 333.0
+flat = true
+
+[connection signal="button_down" from="EcranTitreFinal/Start" to="EcranTitreFinal/StartAnim" method="_on_button_down"]
+[connection signal="button_down" from="EcranTitreFinal/Start" to="EcranTitreFinal/StartAnim/CamShake" method="shake"]
+[connection signal="button_down" from="EcranTitreFinal/Start" to="EcranTitreFinal/StartAnim/MoveUp" method="start"]
+[connection signal="button_down" from="EcranTitreFinal/Start" to="Parchemin/Grow" method="start"]
