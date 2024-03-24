@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Scenes/StartButton.gd" id="3_7n85d"]
 
 [node name="GameOver" type="Node2D"]
+texture_filter = 1
 
 [node name="GameOver" type="Sprite2D" parent="."]
 texture = ExtResource("1_lbubw")
@@ -26,3 +27,5 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(223, 288)
 script = ExtResource("3_7n85d")
 sprite = NodePath("../Sprite2D")
+
+[connection signal="button_down" from="Start" to="StartAnim" method="_on_button_down"]

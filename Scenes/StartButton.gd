@@ -4,4 +4,4 @@ extends Node2D
 
 func _on_button_down():
 	sprite.texture = load("res://Scenes/start_buton2_0000.png")
-	$"../Start".queue_free()
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
