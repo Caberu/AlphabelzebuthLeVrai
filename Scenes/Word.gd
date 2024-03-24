@@ -11,8 +11,6 @@ var letters_currently_used := {}
 signal on_update_correctness
 signal on_use_name
 
-func _ready():
-	add_child(sound_player)
 
 func has_enough_letters(new_word : String) -> bool:
 	word = new_word
