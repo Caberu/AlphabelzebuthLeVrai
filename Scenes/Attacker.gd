@@ -1,12 +1,13 @@
 class_name Attacker extends Node2D
 
 @export var enemy_group : String
+@export var radius : float
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func get_enemy() -> Node2D:
+	return null
+	
+func attack(enemy : Node2D):
 	pass
+	
+func get_distance(other : Node2D) -> float:
+	return abs(other.global_position.x-global_position.x) 
