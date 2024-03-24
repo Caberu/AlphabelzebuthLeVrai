@@ -24,12 +24,13 @@ func update_letter_used():
 		if (!letters_currently_used.has(l.to_upper())):
 			letters_currently_used[l.to_upper()] = 0
 		letters_currently_used[l.to_upper()] = letters_currently_used[l.to_upper()]+1
-	print(letters_currently_used)
+
 
 func use_name(name : String):
 	word = ""
 	alphabet.remove_word(name)
 	on_use_name.emit()
+
 
 func set_unavailable_name(name : String, paradi := false):
 	unavailbale_names[name] = paradi

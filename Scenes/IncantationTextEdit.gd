@@ -31,6 +31,6 @@ func _on_text_changed():
 	old_text = text
 
 func spawn_fx():
-	var instance = load("res://Animation/FlameFX.tscn").instantiate()
+	var instance = load("res://Scenes/flamme_and_shake.tscn").instantiate()
 	get_tree().get_first_node_in_group("FX").add_child(instance)
 	instance.global_position = global_position + Vector2(15.1*(text.length()),0)

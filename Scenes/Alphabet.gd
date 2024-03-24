@@ -8,10 +8,13 @@ var letters_stock := {
 
 signal on_update_letter_stock
 
+func on_update_stock():
+	on_update_letter_stock.emit()
+
 func add_letter(letter : String, n := 1):
 	letter = letter.to_upper()
 	letters_stock[letter] = get_letter_count(letter)+n
-	on_update_letter_stock.emit()
+	#on_update_letter_stock.emit()
 
 func remove_letter(letter : String, n := 1):
 	letter = letter.to_upper()

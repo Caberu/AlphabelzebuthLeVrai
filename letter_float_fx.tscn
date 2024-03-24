@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctqqyxsx0y1sq"]
+
+[ext_resource type="PackedScene" uid="uid://itngke55wthn" path="res://Scenes/lettre_gfx.tscn" id="1_2153j"]
+[ext_resource type="Script" path="res://FlyToCoord.gd" id="2_2ufh6"]
+
+[sub_resource type="Curve" id="Curve_b1mj7"]
+min_value = -0.55
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.208861, -0.0901099), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_al3jl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.478903, 0.569231), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="LetterFloatFX" type="Node2D"]
+
+[node name="LettreGFX" parent="." instance=ExtResource("1_2153j")]
+
+[node name="FlyToCoord" type="Node2D" parent="."]
+script = ExtResource("2_2ufh6")
+coord = Vector2(50, 500)
+curve = SubResource("Curve_b1mj7")
+curve2 = SubResource("Curve_al3jl")

@@ -1,11 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=15 format=3 uid="uid://oin0x3b3cdf2"]
 
-[ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_dn2nl"]
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
 [ext_resource type="Texture2D" uid="uid://cr4bb3wh6cfjd" path="res://WhiteSquare.png" id="1_m3me3"]
-[ext_resource type="Texture2D" uid="uid://dyodb4sllpnq3" path="res://Scenes/background_cave_0000.png" id="1_q6sk5"]
 [ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="1_ulj3d"]
-[ext_resource type="Texture2D" uid="uid://crs3n6o2uakxf" path="res://Scenes/background_cave_0001.png" id="2_orvhd"]
+[ext_resource type="Texture2D" uid="uid://cay3rdbl7j86m" path="res://Sprites/background_cave.png" id="2_5jes4"]
 [ext_resource type="PackedScene" uid="uid://g533147ngkau" path="res://Scenes/line.tscn" id="3_avtcv"]
 [ext_resource type="Script" path="res://Scenes/FondNoir.gd" id="4_yhamd"]
 [ext_resource type="Script" path="res://Scenes/IncantationDisplay.gd" id="6_htmfq"]
@@ -16,67 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
 [ext_resource type="Texture2D" uid="uid://5aqxi4x1qus" path="res://Sprites/pentacle.png" id="13_vwd2l"]
-[ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="14_mvhh6"]
 
-[sub_resource type="Animation" id="Animation_rhceh"]
-resource_name = "BG"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("1_q6sk5"), ExtResource("2_orvhd")]
-}
-
-[sub_resource type="Animation" id="Animation_xngtt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_q6sk5")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0e1aa"]
-_data = {
-"BG": SubResource("Animation_rhceh"),
-"RESET": SubResource("Animation_xngtt")
-}
-
-[node name="Main" type="Node2D" groups=["Camera"]]
+[node name="Main" type="Node2D"]
 texture_filter = 1
-script = ExtResource("1_dn2nl")
 
 [node name="Game" type="Node2D" parent="."]
 
-[node name="FondNoir" type="Sprite2D" parent="Game"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(315, 185.5)
-scale = Vector2(49.1875, 29.3125)
-texture = ExtResource("1_m3me3")
-
 [node name="Background" type="Sprite2D" parent="Game"]
-texture = ExtResource("1_q6sk5")
+texture = ExtResource("2_5jes4")
 centered = false
 metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/Background"]
-libraries = {
-"": SubResource("AnimationLibrary_0e1aa")
-}
-autoplay = "BG"
 
 [node name="Line" parent="Game" instance=ExtResource("3_avtcv")]
 position = Vector2(20, 38)
@@ -116,11 +63,12 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -544.0
 offset_top = -376.0
-offset_right = -153.0
+offset_right = -89.0
 offset_bottom = -321.0
 theme = ExtResource("1_ulj3d")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 33
+placeholder_text = "..."
 context_menu_enabled = false
 shortcut_keys_enabled = false
 selecting_enabled = false
@@ -139,6 +87,7 @@ offset_right = -67.0
 offset_bottom = -312.0
 theme = ExtResource("1_ulj3d")
 theme_override_font_sizes/font_size = 33
+text = "Quoicoubelzebuth"
 max_lines_visible = 1
 script = ExtResource("6_htmfq")
 
@@ -157,10 +106,6 @@ script = ExtResource("9_ljgwk")
 
 [node name="Alphabet" type="Node2D" parent="." groups=["Alphabet"]]
 script = ExtResource("7_od6r7")
-
-[node name="CamShake" parent="Alphabet" instance=ExtResource("14_mvhh6")]
-time = 0.1
-force = 5.0
 
 [node name="Letter" parent="." instance=ExtResource("10_4klt4")]
 position = Vector2(203, 117)
@@ -181,7 +126,6 @@ texture = ExtResource("13_vwd2l")
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="FX/FondNoir" method="_on_text_edit_text_changed"]
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
-[connection signal="on_update_letter_stock" from="Alphabet" to="Alphabet/CamShake" method="shake"]
 
 [editable path="Game/Line"]
 [editable path="Game/Line/Portal"]
