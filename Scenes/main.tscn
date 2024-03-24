@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=26 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_dn2nl"]
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bfgdm168toidc" path="res://Sprites/inventory.png" id="18_wkuni"]
 [ext_resource type="PackedScene" uid="uid://rse0v5p5cpor" path="res://Scenes/DemonPreview.tscn" id="19_ijk5w"]
 [ext_resource type="Script" path="res://Scenes/PentacleTest.gd" id="20_3vg4p"]
+[ext_resource type="PackedScene" uid="uid://6fq6qo6t747q" path="res://Scenes/bougie.tscn" id="21_sgeow"]
 
 [sub_resource type="Animation" id="Animation_rhceh"]
 resource_name = "BG"
@@ -271,12 +272,27 @@ letter = "H"
 [node name="LeFrench" type="Node" parent="."]
 script = ExtResource("11_d2and")
 
-[node name="PentacleTest" type="Sprite2D" parent="."]
-modulate = Color(0.666667, 0, 0, 1)
+[node name="PentacleTest" type="Sprite2D" parent="." groups=["Pentacle"]]
+self_modulate = Color(1, 0, 0, 1)
 position = Vector2(469, 303)
 scale = Vector2(0.84, 0.84)
 texture = ExtResource("13_vwd2l")
 script = ExtResource("20_3vg4p")
+
+[node name="Bougie" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(-47.619, 7.14286)
+
+[node name="Bougie2" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(1.19048, 38.0952)
+
+[node name="Bougie3" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(48.8095, 5.95238)
+
+[node name="Bougie4" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(33.3333, -65.4762)
+
+[node name="Bougie5" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(-30.9524, -65.4762)
 
 [node name="DemonPreview" parent="." instance=ExtResource("19_ijk5w")]
 position = Vector2(470, 345)

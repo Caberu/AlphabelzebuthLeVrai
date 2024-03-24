@@ -22,6 +22,7 @@ general/text_to_speech=true
 [autoload]
 
 Music="*res://Scenes/music.tscn"
+Paradi="*res://paradi.gd"
 
 [display]
 

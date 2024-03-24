@@ -1,26 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://6fq6qo6t747q"]
+[gd_scene load_steps=9 format=3 uid="uid://6fq6qo6t747q"]
 
+[ext_resource type="Script" path="res://Scenes/bougie.gd" id="1_i0243"]
 [ext_resource type="Texture2D" uid="uid://buje2rt40q02i" path="res://Scenes/bougies_0002.png" id="1_yttm8"]
 [ext_resource type="Texture2D" uid="uid://vcla7b343yta" path="res://Scenes/bougies_0001.png" id="2_h874c"]
 [ext_resource type="Texture2D" uid="uid://c2iy6t31ls0tj" path="res://Scenes/bougies_0000.png" id="3_nl5xc"]
 
 [sub_resource type="Animation" id="Animation_wyx07"]
 resource_name = "Bougie_off"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_yttm8")]
-}
-
-[sub_resource type="Animation" id="Animation_s6i5c"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,6 +37,21 @@ tracks/0/keys = {
 "values": [ExtResource("2_h874c"), ExtResource("3_nl5xc")]
 }
 
+[sub_resource type="Animation" id="Animation_s6i5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_yttm8")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aswl4"]
 _data = {
 "Bougie_off": SubResource("Animation_wyx07"),
@@ -59,6 +60,7 @@ _data = {
 }
 
 [node name="Bougie" type="Node2D"]
+script = ExtResource("1_i0243")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yttm8")

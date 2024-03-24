@@ -62,5 +62,7 @@ libraries = {
 
 [node name="ArriveAtEdge" type="Node2D" parent="."]
 script = ExtResource("8_2vmqi")
+side = 1
 
 [connection signal="death" from="Damageable" to="Death" method="_on_damageable_death"]
+[connection signal="arrive_at_edge" from="ArriveAtEdge" to="Death" method="gotohell"]

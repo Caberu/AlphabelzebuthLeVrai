@@ -7,6 +7,38 @@
 [ext_resource type="Texture2D" uid="uid://uq27vkytfrnk" path="res://Sprites/portal_ouverture_new_0000.png" id="5_vno54"]
 [ext_resource type="Texture2D" uid="uid://bmi1nlbmbaue4" path="res://Scenes/portal_ouverture_0003.png" id="6_yyfjf"]
 
+[sub_resource type="Animation" id="Animation_ekhdk"]
+resource_name = "Portail_burst"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_vno54")]
+}
+
+[sub_resource type="Animation" id="Animation_q7rno"]
+resource_name = "Portail_close"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_iwcd7"), ExtResource("6_yyfjf")]
+}
+
 [sub_resource type="Animation" id="Animation_isw7o"]
 resource_name = "Portail_open"
 loop_mode = 1
@@ -36,38 +68,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("3_jff1c")]
-}
-
-[sub_resource type="Animation" id="Animation_q7rno"]
-resource_name = "Portail_close"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("4_iwcd7"), ExtResource("6_yyfjf")]
-}
-
-[sub_resource type="Animation" id="Animation_ekhdk"]
-resource_name = "Portail_burst"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_vno54")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wmn2s"]
