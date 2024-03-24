@@ -14,8 +14,8 @@ var attacker_scenes := {
 func get_hp(demon_name : String) -> int:
 	return int(float(len(demon_name)))
 
-func get_sprite(demon_name : String) -> Texture2D:
-	return load("res://sprite_alphabelzebuth.png")
+func get_sprite(demon_name : String) -> String:
+	return "templar"
 
 func get_type(demon_name : String) -> AttackerType:
 	return AttackerType.RANGED
@@ -26,8 +26,8 @@ func initialize(demon_name : String):
 	var hp : int = get_hp(demon_name)
 	$"../Damageable".max_hp = hp
 	
-	var sprite : Texture2D = get_sprite(demon_name)
-	$"../Sprite".texture = sprite
+	var sprite : String = get_sprite(demon_name)
+	$"../Walk".anim_string = sprite
 	
 	var type : AttackerType = get_type(demon_name)
 	var instance : Attacker = attacker_scenes[type].instantiate()
