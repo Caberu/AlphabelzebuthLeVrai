@@ -140,7 +140,6 @@ centered = false
 script = ExtResource("6_vip2t")
 
 [node name="EcranTitreFinal" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("1_mt0hu")
 centered = false
 
