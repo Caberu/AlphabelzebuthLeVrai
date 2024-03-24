@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 general/text_to_speech=true
 
+[autoload]
+
+Music="*res://Scenes/music.tscn"
+
 [display]
 
 window/size/viewport_width=640

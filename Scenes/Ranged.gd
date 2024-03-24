@@ -2,7 +2,12 @@ class_name Ranged extends Attacker
 
 @onready var walk : Walk = $"../Walk"
 @onready var projectile : PackedScene = load("res://Scenes/Bullet.tscn")
+@onready var audio_player := AudioStreamPlayer.new();
 
+func _ready():
+	audio_player.stream = load("res://Sounds/magic.ogg")
+	audio_player.volume_db = -20
+	add_child(audio_player)
 
 func get_closest(nodes : Array[Node]) -> Node2D:
 	var closest : Node = null
@@ -32,6 +37,11 @@ func attack(enemy : Node2D):
 	bullet.dmg = dmg
 	$"../../".add_child(bullet)
 	bullet.global_position = global_position
+	bullet.global_position.x += walk.speed
+	
+	audio_player.pitch_scale *= randf_range(0.95, 1.05)
+	audio_player.play()
+	
 
 func initiate_attack():
 	var enemy : Node2D = get_enemy()

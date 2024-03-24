@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dn5tsw7mjnqe0"]
+[gd_scene load_steps=20 format=3 uid="uid://dyn5jma2klw1y"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_jhb6p"]
 [ext_resource type="Texture2D" uid="uid://c5s8vaqt5e10y" path="res://Scenes/ecran_titre_final.png" id="1_mt0hu"]
@@ -8,15 +8,33 @@
 [ext_resource type="Texture2D" uid="uid://d084u16r3h0qm" path="res://Scenes/start_buton2_0001.png" id="3_yr2qm"]
 [ext_resource type="Texture2D" uid="uid://b5fjxgqrx5c6k" path="res://Sprites/parchemin/parchemin_animation1.png" id="4_f632s"]
 [ext_resource type="Animation" uid="uid://b26i37jbnobn0" path="res://parchemin2.res" id="5_0bfyi"]
-[ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="5_0lp6l"]
+[ext_resource type="PackedScene" path="res://Scenes/cam_shake.tscn" id="5_0lp6l"]
 [ext_resource type="Texture2D" uid="uid://cy4qelsbir1ni" path="res://Sprites/parchemin2/7.png" id="5_xtdwf"]
 [ext_resource type="Script" path="res://Scenes/MoveUp.gd" id="6_2tlpp"]
 [ext_resource type="Script" path="res://Scenes/ParcheminLore.gd" id="6_vip2t"]
+[ext_resource type="AudioStream" uid="uid://dx1bdqieat5aj" path="res://Sounds/Voix_001.mp3" id="8_bwjts"]
+[ext_resource type="AudioStream" uid="uid://b7ylsavjilgtp" path="res://Sounds/paper.ogg" id="9_rhn3l"]
+[ext_resource type="PackedScene" uid="uid://buarriopdgyts" path="res://Scenes/music.tscn" id="13_271vo"]
 
 [sub_resource type="Curve" id="Curve_cp3f5"]
 max_value = 1.1
 _data = [Vector2(0.232733, 0), 0.0, 0.657971, 0, 0, Vector2(0.704204, 0.324829), 1.58634, 1.58634, 0, 0, Vector2(0.968468, 1.04788), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.275192, 0.0, 0, 0]
 point_count = 4
+
+[sub_resource type="Animation" id="Animation_cxwpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_f632s")]
+}
 
 [sub_resource type="Animation" id="Animation_20p12"]
 resource_name = "parcheminClose"
@@ -32,21 +50,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("5_xtdwf")]
-}
-
-[sub_resource type="Animation" id="Animation_cxwpc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_f632s")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ko1f"]
@@ -86,6 +89,14 @@ centered = false
 [node name="ParcheminLore" type="Node2D" parent="Parchemin"]
 script = ExtResource("6_vip2t")
 
+[node name="Voice" type="AudioStreamPlayer" parent="Parchemin"]
+stream = ExtResource("8_bwjts")
+volume_db = -10.0
+
+[node name="papier" type="AudioStreamPlayer" parent="Parchemin"]
+stream = ExtResource("9_rhn3l")
+volume_db = -10.0
+
 [node name="EcranTitreFinal" type="Sprite2D" parent="."]
 texture = ExtResource("1_mt0hu")
 centered = false
@@ -113,7 +124,10 @@ offset_right = 387.0
 offset_bottom = 333.0
 flat = true
 
+[node name="Music" parent="." instance=ExtResource("13_271vo")]
+volume_db = 0.0
+
+[connection signal="button_down" from="EcranTitreFinal/Start" to="Parchemin/Grow" method="start"]
 [connection signal="button_down" from="EcranTitreFinal/Start" to="EcranTitreFinal/StartAnim" method="_on_button_down"]
 [connection signal="button_down" from="EcranTitreFinal/Start" to="EcranTitreFinal/StartAnim/CamShake" method="shake"]
 [connection signal="button_down" from="EcranTitreFinal/Start" to="EcranTitreFinal/StartAnim/MoveUp" method="start"]
-[connection signal="button_down" from="EcranTitreFinal/Start" to="Parchemin/Grow" method="start"]

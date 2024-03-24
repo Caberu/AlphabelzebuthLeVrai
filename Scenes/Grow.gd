@@ -19,7 +19,10 @@ func _process(delta):
 	$"../Sprite2D".modulate = Color($"../Sprite2D".modulate, curve.sample(time))
 	
 	if (time >= 1.1):
+		$"../Voice".play()
+		$"../papier".play()
 		queue_free()
 		on_open_parchemin.emit()
 		$"../ParcheminLore".setok()
 		$"../AnimationPlayer".play("parchemin2")
+		
