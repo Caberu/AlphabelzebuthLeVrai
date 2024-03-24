@@ -39,7 +39,7 @@ func set_available_name(name : String):
 	unavailbale_names.erase(name) #???? jsp si ça marche
 
 func is_available_name(name: String) -> bool:
-	return !unavailbale_names.has(name)
+	return !unavailbale_names.has(name.to_lower().reverse().capitalize())
 
 func change_word(new_word : String):
 	word = new_word

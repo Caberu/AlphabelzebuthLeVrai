@@ -1,4 +1,4 @@
-extends Node2D
+class_name Letter extends Node2D
 
 @export var letter : String
 

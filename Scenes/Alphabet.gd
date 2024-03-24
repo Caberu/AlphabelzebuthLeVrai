@@ -1,9 +1,7 @@
 class_name Alphabet extends Node2D
 
 var letters_stock := {
-	"A":20,
-	"R":3,
-	"T":1
+
 }
 
 signal on_update_letter_stock

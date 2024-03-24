@@ -3,6 +3,7 @@ extends Node2D
 @export var demon_scene : PackedScene
 
 var open := false
+var selected := false
 
 @export var portal_on : Texture2D
 @export var portal_off : Texture2D
@@ -11,6 +12,7 @@ var open := false
 
 
 func _ready():
+	
 	word.on_update_correctness.connect(on_update_correctness)
 	on_update_correctness()
 
@@ -19,15 +21,26 @@ func on_update_correctness():
 	update_open()
 
 func update_open():
-	$Sprite2D.texture = portal_on if (open)  else portal_off
+	$Sprite2D.texture = portal_on if (open and selected)  else portal_off
+
+func _on_return_key_pressed():
+	if (open and selected):
+		instantiate_demon(demon_scene)
 
 func _on_click():
-	if (open):
-		instantiate_demon(demon_scene)
+	var portals = get_tree().get_nodes_in_group("Portal")
+	for p in portals:
+		p.selected = false
+		p.update_open()
+	selected = true
+	update_open()
 
 var time := 0.0
 
 func _process(delta):
+	if (Input.is_action_just_pressed("CallName")):
+		_on_return_key_pressed()
+	
 	time += delta
 	if (open):
 		$Sprite2D.modulate = Color($Sprite2D.modulate, sin(time*5)/3+0.66)
