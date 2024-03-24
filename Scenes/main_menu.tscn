@@ -151,7 +151,6 @@ stream = ExtResource("9_rhn3l")
 volume_db = -10.0
 
 [node name="EcranTitreFinal" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("1_mt0hu")
 centered = false
 
