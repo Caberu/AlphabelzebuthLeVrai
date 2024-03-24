@@ -43,4 +43,5 @@ func instantiate_demon(scene : PackedScene):
 	word.use_name(demon_name)
 	$"../Demons".add_child(instance)
 	instance.global_position = global_position
+	instance.global_position.y += 17
 	

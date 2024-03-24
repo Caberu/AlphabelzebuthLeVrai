@@ -2,8 +2,6 @@ class_name Melee extends Attacker
 
 @onready var walk : Walk = $"../Walk"
 
-var dmg : int = 1
-
 func get_closest(nodes : Array[Node]) -> Node2D:
 	var closest : Node = null
 	var min_dist : float = 99999999.0

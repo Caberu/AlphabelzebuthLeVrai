@@ -29,6 +29,7 @@ func attack(enemy : Node2D):
 	var damageable : Damageable = enemy.find_child("Damageable")
 	var bullet : Bullet = projectile.instantiate()
 	bullet.target = enemy
+	bullet.dmg = dmg
 	$"../../".add_child(bullet)
 	bullet.global_position = global_position
 

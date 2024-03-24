@@ -13,3 +13,4 @@ func spawn_inquisitor():
 	instance.find_child("Sprite").flip_h = true
 	$"../Inquisitors".add_child(instance)
 	instance.global_position = global_position
+	instance.global_position.y += 17
