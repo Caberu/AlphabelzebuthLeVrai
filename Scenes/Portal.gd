@@ -42,9 +42,9 @@ func _process(delta):
 		_on_return_key_pressed()
 	
 	time += delta
-	if (open):
+	if (selected):
 		$Sprite2D.modulate = Color($Sprite2D.modulate, sin(time*5)/3+0.66)
-	elif (!open):
+	elif (!selected):
 		$Sprite2D.modulate = Color($Sprite2D.modulate, 0.4)
 
 func instantiate_demon(scene : PackedScene):
