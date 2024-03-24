@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5krhmv578nv1" path="res://Sprites/skeleton/skeleton_animation_walk1.png" id="3_ultui"]
 [ext_resource type="Script" path="res://Scenes/DemonCreator.gd" id="5_7vdbd"]
 [ext_resource type="Script" path="res://Scenes/Death_demon.gd" id="6_u70lw"]
-[ext_resource type="AnimationLibrary" path="res://Animation/mobs.tres" id="7_nkrdu"]
+[ext_resource type="AnimationLibrary" uid="uid://dg6hj5r7vwpuc" path="res://Animation/mobs.tres" id="7_nkrdu"]
 [ext_resource type="Script" path="res://Scenes/ArriveAtEdge.gd" id="8_s83i2"]
 
 [sub_resource type="Animation" id="Animation_oruni"]
