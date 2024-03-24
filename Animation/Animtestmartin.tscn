@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://ummbelsaodwn"]
+[gd_scene load_steps=33 format=3 uid="uid://ummbelsaodwn"]
 
 [ext_resource type="Texture2D" uid="uid://c008qhw1gq6n7" path="res://Sprites/bat/bat_animation_0001.png" id="1_r5w0q"]
-[ext_resource type="Animation" uid="uid://bjbbsjc8e5nxc" path="res://Animation/sprite_animation/bat_idle.res" id="2_oktjl"]
-[ext_resource type="Animation" uid="uid://c43jkpdygb4be" path="res://Animation/sprite_animation/slime_idle.res" id="3_irky3"]
-[ext_resource type="Animation" uid="uid://c80cmnfgh3kgs" path="res://Animation/sprite_animation/templar_idle.res" id="4_38iqf"]
+[ext_resource type="Animation" uid="uid://bjbbsjc8e5nxc" path="res://Animation/sprite_animation/bat_run.res" id="2_oktjl"]
+[ext_resource type="Animation" uid="uid://c43jkpdygb4be" path="res://Animation/sprite_animation/slime_run.res" id="3_irky3"]
+[ext_resource type="Animation" uid="uid://c80cmnfgh3kgs" path="res://Animation/sprite_animation/templar_run.res" id="4_38iqf"]
 [ext_resource type="Animation" uid="uid://c4d37l6380a01" path="res://Animation/sprite_animation/templar_fight.res" id="5_u0pij"]
 [ext_resource type="Animation" uid="uid://2hwvady5u4bo" path="res://Animation/sprite_animation/skeleton_run.res" id="6_lcgf3"]
 [ext_resource type="Animation" uid="uid://fyuhgdfo5f3c" path="res://Animation/sprite_animation/skeleton_fight.res" id="7_rqffn"]
@@ -13,9 +13,21 @@
 [ext_resource type="Animation" uid="uid://2hjw475ymak3" path="res://Animation/sprite_animation/mage_fight.res" id="11_v4cns"]
 [ext_resource type="Animation" uid="uid://bnymb4aeottgu" path="res://Animation/sprite_animation/archer_run.res" id="12_omm68"]
 [ext_resource type="Animation" uid="uid://cq0ef2xyguhfl" path="res://Animation/sprite_animation/archer_fight.res" id="13_5s4l1"]
-[ext_resource type="Texture2D" uid="uid://b7dmo2bx25fin" path="res://Sprites/ghost/ghost_0002.png" id="14_3iliu"]
-[ext_resource type="Texture2D" uid="uid://djlk2udcth1jy" path="res://Sprites/ghost/ghost_0000.png" id="15_rgxdn"]
-[ext_resource type="Texture2D" uid="uid://dsvvp0rupxkwo" path="res://Sprites/ghost/ghost_0001.png" id="16_wif5l"]
+[ext_resource type="Animation" uid="uid://cf78uotp2hynv" path="res://ghost_run.res" id="14_3mfch"]
+[ext_resource type="Animation" uid="uid://muyh1q6numda" path="res://ghost_fight.res" id="15_foddv"]
+[ext_resource type="Texture2D" uid="uid://b5fjxgqrx5c6k" path="res://Sprites/parchemin/parchemin_animation1.png" id="16_nwkpm"]
+[ext_resource type="Texture2D" uid="uid://lg523b63tn11" path="res://Sprites/parchemin/parchemin_animation2.png" id="17_lac8j"]
+[ext_resource type="Texture2D" uid="uid://cgiqg7ssh8ds8" path="res://Sprites/parchemin/parchemin_animation3.png" id="18_bj7hi"]
+[ext_resource type="Texture2D" uid="uid://dgt6k73ovp0bj" path="res://Sprites/parchemin/parchemin_animation4.png" id="19_pohb1"]
+[ext_resource type="Texture2D" uid="uid://by83xd18cbwv1" path="res://Sprites/parchemin/parchemin_animation5.png" id="20_nn16p"]
+[ext_resource type="Texture2D" uid="uid://dgx55scgbew0" path="res://Sprites/parchemin/parchemin_animation6.png" id="21_avu43"]
+[ext_resource type="Texture2D" uid="uid://b0p03ieeu2jn7" path="res://Sprites/parchemin2/1.png" id="22_d3wcb"]
+[ext_resource type="Texture2D" uid="uid://cxhr1t7xdl6ve" path="res://Sprites/parchemin2/2.png" id="23_pwgkn"]
+[ext_resource type="Texture2D" uid="uid://1d40tjdiijxq" path="res://Sprites/parchemin2/3.png" id="24_o0idb"]
+[ext_resource type="Texture2D" uid="uid://c7xyexqv6r6m7" path="res://Sprites/parchemin2/4.png" id="25_pl55u"]
+[ext_resource type="Texture2D" uid="uid://ug4jc4frshmd" path="res://Sprites/parchemin2/5.png" id="26_4bbxe"]
+[ext_resource type="Texture2D" uid="uid://dxelwe8u0h6rx" path="res://Sprites/parchemin2/6.png" id="27_sfjxf"]
+[ext_resource type="Texture2D" uid="uid://cy4qelsbir1ni" path="res://Sprites/parchemin2/7.png" id="28_umyxs"]
 
 [sub_resource type="Animation" id="Animation_05nfa"]
 length = 0.001
@@ -32,24 +44,9 @@ tracks/0/keys = {
 "values": [ExtResource("1_r5w0q")]
 }
 
-[sub_resource type="Animation" id="Animation_yq51t"]
-resource_name = "ghost_run"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("14_3iliu"), ExtResource("15_rgxdn")]
-}
-
-[sub_resource type="Animation" id="Animation_nnqys"]
-resource_name = "ghost_fight"
-length = 1.5
+[sub_resource type="Animation" id="Animation_1wsjx"]
+resource_name = "parchemin2"
+length = 3.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -58,10 +55,27 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("16_wif5l"), ExtResource("15_rgxdn"), ExtResource("14_3iliu")]
+"values": [ExtResource("22_d3wcb"), ExtResource("23_pwgkn"), ExtResource("24_o0idb"), ExtResource("25_pl55u"), ExtResource("26_4bbxe"), ExtResource("27_sfjxf"), ExtResource("28_umyxs")]
+}
+
+[sub_resource type="Animation" id="Animation_jiqge"]
+resource_name = "parchemin_animation"
+length = 3.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_nwkpm"), ExtResource("17_lac8j"), ExtResource("18_bj7hi"), ExtResource("19_pohb1"), ExtResource("20_nn16p"), ExtResource("21_avu43"), ExtResource("22_d3wcb")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b0jab"]
@@ -70,12 +84,14 @@ _data = {
 "archer_fight": ExtResource("13_5s4l1"),
 "archer_run": ExtResource("12_omm68"),
 "bat_idle": ExtResource("2_oktjl"),
-"ghost_fight": SubResource("Animation_nnqys"),
-"ghost_run": SubResource("Animation_yq51t"),
+"ghost_fight": ExtResource("15_foddv"),
+"ghost_run": ExtResource("14_3mfch"),
 "mage_fight": ExtResource("11_v4cns"),
 "mage_run": ExtResource("10_hs3g7"),
 "minautore_fight": ExtResource("9_i37js"),
 "minotaure_run": ExtResource("8_8tjvw"),
+"parchemin2": SubResource("Animation_1wsjx"),
+"parchemin_animation": SubResource("Animation_jiqge"),
 "skeleton_fight": ExtResource("7_rqffn"),
 "skeleton_run": ExtResource("6_lcgf3"),
 "slime_idle": ExtResource("3_irky3"),
