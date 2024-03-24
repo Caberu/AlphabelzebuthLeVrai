@@ -1,6 +1,12 @@
 extends Node2D
 
-var letter : String = "a"
+var letter : String = "?"
+var alphabet : String = "abcdefghijklmnopqrstuvwxyz"
+
+func get_letter():
+	if (letter == "?"):
+		letter = alphabet[randi_range(0,25)]
+	return letter
 
 func _on_damageable_death():
 	var letter_node : Node2D = load("res://Scenes/letter.tscn").instantiate()

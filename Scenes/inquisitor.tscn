@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bup37rgqftpbv"]
+[gd_scene load_steps=8 format=3 uid="uid://bup37rgqftpbv"]
 
 [ext_resource type="PackedScene" uid="uid://cakmet6mwokxa" path="res://Scenes/Damageable.tscn" id="1_q5s4f"]
+[ext_resource type="Script" path="res://Scenes/LetterHead.gd" id="3_0il5a"]
 [ext_resource type="Texture2D" uid="uid://eg3ym6wuv8sl" path="res://sprite_alphabelzebuth.png" id="3_pgmq4"]
+[ext_resource type="PackedScene" uid="uid://itngke55wthn" path="res://Scenes/lettre_gfx.tscn" id="3_q5x2v"]
 [ext_resource type="PackedScene" uid="uid://cuuslfe4ilcv1" path="res://Scenes/Melee.tscn" id="4_54qa1"]
 [ext_resource type="Script" path="res://Walk.gd" id="4_d12do"]
 [ext_resource type="Script" path="res://Scenes/Death_inquisitor.gd" id="5_qfv3r"]
@@ -16,6 +18,12 @@ texture_filter = 1
 texture = ExtResource("3_pgmq4")
 centered = false
 offset = Vector2(0, -24)
+
+[node name="LetterHead" type="Node2D" parent="Sprite"]
+script = ExtResource("3_0il5a")
+
+[node name="LettreGFX" parent="Sprite/LetterHead" instance=ExtResource("3_q5x2v")]
+position = Vector2(12, -12)
 
 [node name="Walk" type="Node2D" parent="."]
 script = ExtResource("4_d12do")
