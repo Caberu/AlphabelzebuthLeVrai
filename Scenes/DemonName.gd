@@ -10,4 +10,15 @@ func update_val(new_val : int):
 
 func _ready():
 	name_text.text = demon_name
+
+func ascend():
+	var instance = load("res://Scenes/ascend_fx.tscn").instantiate()
+	instance.demon_name = demon_name
+	instance.coord = global_position
+	get_tree().current_scene.add_child(instance)
+	instance.global_position = global_position
+	get_tree().get_first_node_in_group("Word").set_unavailable_name(demon_name,true)
+	$"..".queue_free()
 	
+func available():
+	get_tree().get_first_node_in_group("Word").set_available_name(demon_name)

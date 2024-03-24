@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=26 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_dn2nl"]
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="1_ulj3d"]
 [ext_resource type="Texture2D" uid="uid://crs3n6o2uakxf" path="res://Scenes/background_cave_0001.png" id="2_orvhd"]
 [ext_resource type="PackedScene" uid="uid://g533147ngkau" path="res://Scenes/line.tscn" id="3_avtcv"]
+[ext_resource type="Texture2D" uid="uid://be8c87xjy1ccu" path="res://Sprites/door.png" id="4_jv4mj"]
 [ext_resource type="Script" path="res://Scenes/FondNoir.gd" id="4_yhamd"]
 [ext_resource type="Script" path="res://Scenes/IncantationDisplay.gd" id="6_htmfq"]
 [ext_resource type="Script" path="res://Scenes/LetterStockContainer.gd" id="7_dv6vc"]
@@ -17,6 +18,10 @@
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
 [ext_resource type="Texture2D" uid="uid://5aqxi4x1qus" path="res://Sprites/pentacle.png" id="13_vwd2l"]
 [ext_resource type="PackedScene" path="res://Scenes/cam_shake.tscn" id="14_mvhh6"]
+[ext_resource type="Texture2D" uid="uid://bfgdm168toidc" path="res://Sprites/inventory.png" id="18_wkuni"]
+[ext_resource type="PackedScene" uid="uid://rse0v5p5cpor" path="res://Scenes/DemonPreview.tscn" id="19_ijk5w"]
+[ext_resource type="Script" path="res://Scenes/PentacleTest.gd" id="20_3vg4p"]
+[ext_resource type="PackedScene" uid="uid://6fq6qo6t747q" path="res://Scenes/bougie.tscn" id="21_sgeow"]
 
 [sub_resource type="Animation" id="Animation_rhceh"]
 resource_name = "BG"
@@ -70,7 +75,20 @@ texture = ExtResource("1_m3me3")
 [node name="Background" type="Sprite2D" parent="Game"]
 texture = ExtResource("1_q6sk5")
 centered = false
+flip_h = true
 metadata/_edit_lock_ = true
+
+[node name="Door" type="Sprite2D" parent="Game/Background"]
+position = Vector2(602, 207)
+texture = ExtResource("4_jv4mj")
+
+[node name="Door2" type="Sprite2D" parent="Game/Background"]
+position = Vector2(602, 130)
+texture = ExtResource("4_jv4mj")
+
+[node name="Door3" type="Sprite2D" parent="Game/Background"]
+position = Vector2(602, 46)
+texture = ExtResource("4_jv4mj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Game/Background"]
 libraries = {
@@ -90,6 +108,11 @@ metadata/_edit_group_ = true
 position = Vector2(21, 197)
 metadata/_edit_group_ = true
 
+[node name="Inventory" type="Sprite2D" parent="."]
+modulate = Color(1, 0.721569, 0.541176, 1)
+position = Vector2(134, 294)
+texture = ExtResource("18_wkuni")
+
 [node name="FX" type="Node2D" parent="." groups=["FX"]]
 
 [node name="FondNoir" type="Sprite2D" parent="FX"]
@@ -107,6 +130,8 @@ offset_left = 559.0
 offset_top = 647.0
 offset_right = 559.0
 offset_bottom = 647.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="TextEdit" type="TextEdit" parent="UI"]
 modulate = Color(1, 1, 1, 0)
@@ -247,17 +272,40 @@ letter = "H"
 [node name="LeFrench" type="Node" parent="."]
 script = ExtResource("11_d2and")
 
-[node name="PentacleTest" type="Sprite2D" parent="."]
+[node name="PentacleTest" type="Sprite2D" parent="." groups=["Pentacle"]]
+self_modulate = Color(1, 0, 0, 1)
 position = Vector2(469, 303)
 scale = Vector2(0.84, 0.84)
 texture = ExtResource("13_vwd2l")
+script = ExtResource("20_3vg4p")
+
+[node name="Bougie" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(-47.619, 7.14286)
+
+[node name="Bougie2" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(1.19048, 38.0952)
+
+[node name="Bougie3" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(48.8095, 5.95238)
+
+[node name="Bougie4" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(33.3333, -65.4762)
+
+[node name="Bougie5" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(-30.9524, -65.4762)
+
+[node name="DemonPreview" parent="." instance=ExtResource("19_ijk5w")]
+position = Vector2(470, 345)
+scale = Vector2(2, 2)
 
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="FX/FondNoir" method="_on_text_edit_text_changed"]
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
+[connection signal="text_changed" from="UI/TextEdit" to="DemonPreview/PreviewCreator" method="_on_text_edit_text_changed"]
 [connection signal="on_update_letter_stock" from="Alphabet" to="Alphabet/CamShake" method="shake"]
 
 [editable path="Game/Line"]
 [editable path="Game/Line/Portal"]
 [editable path="Game/Line2"]
 [editable path="Game/Line3"]
+[editable path="DemonPreview"]

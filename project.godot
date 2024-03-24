@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Alphabelzebuth"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
 
 general/text_to_speech=true
+
+[autoload]
+
+Music="*res://Scenes/music.tscn"
+Paradi="*res://paradi.gd"
 
 [display]
 
@@ -28,7 +33,7 @@ window/stretch/mode="canvas_items"
 
 [input]
 
-test={
+Skip={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]

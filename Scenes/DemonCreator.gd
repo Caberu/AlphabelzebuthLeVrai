@@ -14,20 +14,18 @@ var sprite_type := {
 	3: "bat",
 	4: "ghost",
 	5: "skeleton",
-	6: "skeleton",
-	7: "mage",
-	8: "slime",
-	9: "minotaur"
+	6: "mage",
+	7: "slime",
+	8: "minotaur"
 }
 
 var hp_type := {
 	3: 1,
 	4: 2,
 	5: 2,
-	6: 2,
-	7: 1,
-	8: 6,
-	9: 4
+	6: 1,
+	7: 6,
+	8: 4
 }
 
 var dmg_type := {
@@ -35,13 +33,13 @@ var dmg_type := {
 	4: 1,
 	5: 2,
 	6: 2,
-	7: 2,
-	8: 0,
-	9: 4
+	7: 0,
+	8: 4
 }
 
 func get_dmg(demon_name : String) -> int:
-	return dmg_type[len(demon_name)]
+	#return dmg_type[len(demon_name)]*3
+	return len(demon_name)
 
 func get_hp(demon_name : String) -> int:
 	return hp_type[len(demon_name)]
@@ -71,12 +69,3 @@ func initialize(demon_name : String):
 	$"..".add_child(instance)
 	
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("test"):
-		$"../Damageable".damage(1)

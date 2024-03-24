@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djl1ybkb07f4j"]
+[gd_scene load_steps=11 format=3 uid="uid://djl1ybkb07f4j"]
 
 [ext_resource type="PackedScene" uid="uid://cakmet6mwokxa" path="res://Scenes/Damageable.tscn" id="1_3b6n3"]
 [ext_resource type="PackedScene" uid="uid://bjx8yint5edim" path="res://Scenes/DemonName.tscn" id="2_jdnh7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/DemonCreator.gd" id="5_7vdbd"]
 [ext_resource type="Script" path="res://Scenes/Death_demon.gd" id="6_u70lw"]
 [ext_resource type="AnimationLibrary" uid="uid://dg6hj5r7vwpuc" path="res://Animation/mobs.tres" id="7_nkrdu"]
+[ext_resource type="Script" path="res://Scenes/ArriveAtEdge.gd" id="8_s83i2"]
 
 [sub_resource type="Animation" id="Animation_oruni"]
 length = 0.001
@@ -33,7 +34,7 @@ _data = {
 [node name="Damageable" parent="." instance=ExtResource("1_3b6n3")]
 
 [node name="DemonName" parent="." instance=ExtResource("2_jdnh7")]
-position = Vector2(13, -30)
+position = Vector2(14, -36)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -43,7 +44,7 @@ offset = Vector2(0, -24)
 
 [node name="Walk" type="Node2D" parent="."]
 script = ExtResource("2_o56tq")
-speed = 30.0
+speed = 20.0
 
 [node name="DemonCreator" type="Node2D" parent="."]
 script = ExtResource("5_7vdbd")
@@ -57,4 +58,9 @@ libraries = {
 "mobs": ExtResource("7_nkrdu")
 }
 
+[node name="ArriveAtEdge" type="Node2D" parent="."]
+script = ExtResource("8_s83i2")
+
+[connection signal="death" from="Damageable" to="DemonName" method="available"]
 [connection signal="death" from="Damageable" to="Death" method="_on_damageable_death"]
+[connection signal="arrive_at_edge" from="ArriveAtEdge" to="DemonName" method="ascend"]

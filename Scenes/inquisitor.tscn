@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Scenes/LetterHead.gd" id="3_0il5a"]
 [ext_resource type="Texture2D" uid="uid://eg3ym6wuv8sl" path="res://sprite_alphabelzebuth.png" id="3_pgmq4"]
 [ext_resource type="PackedScene" path="res://Scenes/lettre_gfx.tscn" id="3_q5x2v"]
-[ext_resource type="PackedScene" uid="uid://cuuslfe4ilcv1" path="res://Scenes/Melee.tscn" id="4_54qa1"]
 [ext_resource type="Script" path="res://Walk.gd" id="4_d12do"]
 [ext_resource type="Script" path="res://Scenes/Death_inquisitor.gd" id="5_qfv3r"]
 [ext_resource type="AnimationLibrary" uid="uid://dg6hj5r7vwpuc" path="res://Animation/mobs.tres" id="6_c0q78"]
+[ext_resource type="Script" path="res://Scenes/ArriveAtEdge.gd" id="8_2vmqi"]
 
 [sub_resource type="Animation" id="Animation_oruni"]
 length = 0.001
@@ -22,6 +22,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_pgmq4")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0hacn"]
@@ -49,10 +61,7 @@ position = Vector2(28, -12)
 
 [node name="Walk" type="Node2D" parent="."]
 script = ExtResource("4_d12do")
-speed = -10.0
-
-[node name="Melee" parent="." instance=ExtResource("4_54qa1")]
-enemy_group = "Demons"
+speed = -20.0
 
 [node name="Death" type="Node2D" parent="."]
 script = ExtResource("5_qfv3r")
@@ -63,4 +72,9 @@ libraries = {
 "mobs": ExtResource("6_c0q78")
 }
 
+[node name="ArriveAtEdge" type="Node2D" parent="."]
+script = ExtResource("8_2vmqi")
+side = 1
+
 [connection signal="death" from="Damageable" to="Death" method="_on_damageable_death"]
+[connection signal="arrive_at_edge" from="ArriveAtEdge" to="Death" method="gotohell"]
