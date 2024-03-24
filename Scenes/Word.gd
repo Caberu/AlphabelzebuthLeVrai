@@ -2,13 +2,15 @@ class_name Word extends Node
 
 var correct := false
 var word := ""
-@onready var alphabet : Alphabet =  $"../Alphabet"
+@onready var alphabet : Alphabet = $"../Alphabet"
+@onready var sound_player := AudioStreamPlayer.new()
 
 var unavailbale_names := {} #hash map (en plus, true si il est au paradi)
 var letters_currently_used := {}
 
 signal on_update_correctness
 signal on_use_name
+
 
 func has_enough_letters(new_word : String) -> bool:
 	word = new_word
@@ -25,11 +27,28 @@ func update_letter_used():
 			letters_currently_used[l.to_upper()] = 0
 		letters_currently_used[l.to_upper()] = letters_currently_used[l.to_upper()]+1
 
+	sound_player.stream = load("res://Sounds/keyboard.ogg")	
+	sound_player.volume_db = 0
+	sound_player.pitch_scale *= randf_range(0.95, 1.05)
+	var clone_player = sound_player.duplicate()
+	add_child(clone_player)
+	clone_player.play()
 
 func use_name(name : String):
 	word = ""
 	alphabet.remove_word(name)
 	on_use_name.emit()
+	
+	for child in get_children():
+		if child is AudioStreamPlayer:
+			child.queue_free()
+	
+	sound_player.stream = load("res://Sounds/enter_word.ogg")	
+	sound_player.volume_db = -13
+	sound_player.pitch_scale *= randf_range(0.95, 1.05)
+	var clone_player = sound_player.duplicate()
+	add_child(clone_player)
+	clone_player.play()
 
 
 func set_unavailable_name(name : String, _paradi := false):
