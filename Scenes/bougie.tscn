@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://6fq6qo6t747q"]
+[gd_scene load_steps=9 format=3 uid="uid://6fq6qo6t747q"]
 
+[ext_resource type="Script" path="res://Scenes/bougie.gd" id="1_i0243"]
 [ext_resource type="Texture2D" uid="uid://buje2rt40q02i" path="res://Scenes/bougies_0002.png" id="1_yttm8"]
 [ext_resource type="Texture2D" uid="uid://vcla7b343yta" path="res://Scenes/bougies_0001.png" id="2_h874c"]
 [ext_resource type="Texture2D" uid="uid://c2iy6t31ls0tj" path="res://Scenes/bougies_0000.png" id="3_nl5xc"]
@@ -59,6 +60,7 @@ _data = {
 }
 
 [node name="Bougie" type="Node2D"]
+script = ExtResource("1_i0243")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yttm8")

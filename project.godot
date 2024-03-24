@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 general/text_to_speech=true
 
+[autoload]
+
+Paradi="*res://paradi.gd"
+
 [display]
 
 window/size/viewport_width=640
