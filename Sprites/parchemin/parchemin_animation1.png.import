@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cebihvipb1y8v"
-path="res://.godot/imported/B.png-e8ba36fab8f468295db20e08ed844502.ctex"
+uid="uid://b5fjxgqrx5c6k"
+path="res://.godot/imported/parchemin_animation1.png-7e3403a61a319ad95d0f77314829abca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/lettre/B.png"
-dest_files=["res://.godot/imported/B.png-e8ba36fab8f468295db20e08ed844502.ctex"]
+source_file="res://Sprites/parchemin/parchemin_animation1.png"
+dest_files=["res://.godot/imported/parchemin_animation1.png-7e3403a61a319ad95d0f77314829abca.ctex"]
 
 [params]
 
