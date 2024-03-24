@@ -7,6 +7,7 @@ var word := ""
 var letters_currently_used := {}
 
 signal on_update_correctness
+signal on_use_name
 
 func has_enough_letters(new_word : String) -> bool:
 	word = new_word
@@ -23,6 +24,11 @@ func update_letter_used():
 			letters_currently_used[l.to_upper()] = 0
 		letters_currently_used[l.to_upper()] = letters_currently_used[l.to_upper()]+1
 	print(letters_currently_used)
+
+func use_name(name : String):
+	word = ""
+	alphabet.remove_word(name)
+	on_use_name.emit()
 
 func change_word(new_word : String):
 	word = new_word

@@ -8,6 +8,12 @@ signal on_true_text_changed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grab_focus()
+	word.on_use_name.connect(reset_name)
+
+func reset_name():
+	text = ""
+	old_text = ""
+	text_changed.emit()
 
 func _process(delta):
 	set_caret_column(text.length())

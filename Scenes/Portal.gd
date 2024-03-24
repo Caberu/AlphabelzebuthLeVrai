@@ -36,7 +36,10 @@ func _process(delta):
 
 func instantiate_demon(scene : PackedScene):
 	var instance : Node2D = scene.instantiate()
-	instance.get_node("DemonCreator").initialize(word.word.reverse())
+	var demon_name = word.word.reverse().to_lower()
+	demon_name = demon_name.capitalize()
+	instance.get_node("DemonCreator").initialize(demon_name)
+	word.use_name(demon_name)
 	$"../Demons".add_child(instance)
 	instance.global_position = global_position
 	
