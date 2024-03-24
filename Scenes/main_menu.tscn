@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dn5tsw7mjnqe0"]
+[gd_scene load_steps=40 format=3 uid="uid://dn5tsw7mjnqe0"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_jhb6p"]
 [ext_resource type="Texture2D" uid="uid://c5s8vaqt5e10y" path="res://Scenes/ecran_titre_final.png" id="1_mt0hu"]
@@ -11,15 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://cy4qelsbir1ni" path="res://Sprites/parchemin2/7.png" id="5_xtdwf"]
 [ext_resource type="Script" path="res://Scenes/MoveUp.gd" id="6_2tlpp"]
 [ext_resource type="Script" path="res://Scenes/ParcheminLore.gd" id="6_vip2t"]
-[ext_resource type="AudioStream" uid="uid://dx1bdqieat5aj" path="res://Sounds/Voix_001.mp3" id="8_bwjts"]
-[ext_resource type="AudioStream" uid="uid://b7ylsavjilgtp" path="res://Sounds/paper.ogg" id="9_rhn3l"]
-[ext_resource type="PackedScene" uid="uid://buarriopdgyts" path="res://Scenes/music.tscn" id="13_271vo"]
 [ext_resource type="Texture2D" uid="uid://dgx55scgbew0" path="res://Sprites/parchemin/parchemin_animation6.png" id="7_yhwmu"]
+[ext_resource type="AudioStream" uid="uid://dx1bdqieat5aj" path="res://Sounds/Voix_001.mp3" id="8_bwjts"]
 [ext_resource type="Texture2D" uid="uid://by83xd18cbwv1" path="res://Sprites/parchemin/parchemin_animation5.png" id="8_xti8w"]
 [ext_resource type="Texture2D" uid="uid://dgt6k73ovp0bj" path="res://Sprites/parchemin/parchemin_animation4.png" id="9_48ghy"]
+[ext_resource type="AudioStream" uid="uid://b7ylsavjilgtp" path="res://Sounds/paper.ogg" id="9_rhn3l"]
 [ext_resource type="Texture2D" uid="uid://cgiqg7ssh8ds8" path="res://Sprites/parchemin/parchemin_animation3.png" id="10_smnmi"]
 [ext_resource type="Texture2D" uid="uid://lg523b63tn11" path="res://Sprites/parchemin/parchemin_animation2.png" id="11_02s25"]
 [ext_resource type="Texture2D" uid="uid://x6co40cfslhv" path="res://Sprites/explication1/explication_animation1_0004.png" id="12_c1xho"]
+[ext_resource type="PackedScene" uid="uid://buarriopdgyts" path="res://Scenes/music.tscn" id="13_271vo"]
 [ext_resource type="Texture2D" uid="uid://8px7tpuiwvnm" path="res://Sprites/explication1/explication_animation1_0003.png" id="13_ceda7"]
 [ext_resource type="Texture2D" uid="uid://15g0hp4gc8cx" path="res://Sprites/explication1/explication_animation1_0002.png" id="14_egflo"]
 [ext_resource type="Script" path="res://Scenes/StartAnimmain.gd" id="15_6vblg"]
@@ -70,6 +70,22 @@ tracks/0/keys = {
 "values": [ExtResource("5_xtdwf"), ExtResource("7_yhwmu"), ExtResource("8_xti8w"), ExtResource("9_48ghy"), ExtResource("10_smnmi"), ExtResource("11_02s25"), ExtResource("4_f632s"), ExtResource("12_c1xho"), ExtResource("13_ceda7"), ExtResource("14_egflo"), ExtResource("15_t31yb"), ExtResource("16_dg356")]
 }
 
+[sub_resource type="Animation" id="Animation_c2d3l"]
+resource_name = "parcheminEnd"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("23_nyfhb"), ExtResource("22_ntk1k"), ExtResource("21_vfq6i"), ExtResource("20_btyf1"), ExtResource("19_xqe5l"), ExtResource("18_i7767"), ExtResource("24_gwxpp")]
+}
+
 [sub_resource type="Animation" id="Animation_tchcy"]
 resource_name = "parcheminNext"
 length = 5.5
@@ -85,22 +101,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("16_dg356"), ExtResource("15_t31yb"), ExtResource("14_egflo"), ExtResource("12_c1xho"), ExtResource("17_2ljvy"), ExtResource("18_i7767"), ExtResource("19_xqe5l"), ExtResource("20_btyf1"), ExtResource("21_vfq6i"), ExtResource("22_ntk1k"), ExtResource("23_nyfhb")]
-}
-
-[sub_resource type="Animation" id="Animation_c2d3l"]
-resource_name = "parcheminEnd"
-length = 3.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("23_nyfhb"), ExtResource("22_ntk1k"), ExtResource("21_vfq6i"), ExtResource("20_btyf1"), ExtResource("19_xqe5l"), ExtResource("18_i7767"), ExtResource("24_gwxpp")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ko1f"]
