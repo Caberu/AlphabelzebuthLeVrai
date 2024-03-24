@@ -6,7 +6,8 @@ enum AttackerType {
 }
 
 var attacker_scenes := {
-	AttackerType.MELEE: load("res://Scenes/Melee.tscn")
+	AttackerType.MELEE: load("res://Scenes/Melee.tscn"),
+	AttackerType.RANGED: load("res://Scenes/Ranged.tscn")
 }
 
 
@@ -17,7 +18,7 @@ func get_sprite(demon_name : String) -> Texture2D:
 	return load("res://sprite_alphabelzebuth.png")
 
 func get_type(demon_name : String) -> AttackerType:
-	return AttackerType.MELEE
+	return AttackerType.RANGED
 
 func initialize(demon_name : String):
 	$"..".name = demon_name

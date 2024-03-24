@@ -1,8 +1,8 @@
-class_name Melee extends Attacker
+class_name Ranged extends Attacker
 
 @onready var walk : Walk = $"../Walk"
+@onready var projectile : PackedScene = load("res://Scenes/Bullet.tscn")
 
-var dmg : int = 1
 
 func get_closest(nodes : Array[Node]) -> Node2D:
 	var closest : Node = null
@@ -27,8 +27,10 @@ func get_enemy() -> Node2D:
 	
 func attack(enemy : Node2D):
 	var damageable : Damageable = enemy.find_child("Damageable")
-	# Joue une animation
-	damageable.damage(dmg)
+	var bullet : Bullet = projectile.instantiate()
+	bullet.target = enemy
+	$"../../".add_child(bullet)
+	bullet.global_position = global_position
 
 func initiate_attack():
 	var enemy : Node2D = get_enemy()
