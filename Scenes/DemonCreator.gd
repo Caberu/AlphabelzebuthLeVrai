@@ -41,7 +41,7 @@ var dmg_type := {
 }
 
 func get_dmg(demon_name : String) -> int:
-	return dmg_type[len(demon_name)]
+	return dmg_type[len(demon_name)]*3
 
 func get_hp(demon_name : String) -> int:
 	return hp_type[len(demon_name)]
