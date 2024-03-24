@@ -26,3 +26,5 @@ enemy_group = "Demons"
 
 [node name="Death" type="Node2D" parent="."]
 script = ExtResource("5_qfv3r")
+
+[connection signal="death" from="Damageable" to="Death" method="_on_damageable_death"]
