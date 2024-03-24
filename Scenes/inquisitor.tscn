@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://eg3ym6wuv8sl" path="res://sprite_alphabelzebuth.png" id="3_pgmq4"]
 [ext_resource type="PackedScene" uid="uid://cuuslfe4ilcv1" path="res://Scenes/Melee.tscn" id="4_54qa1"]
 [ext_resource type="Script" path="res://Walk.gd" id="4_d12do"]
-[ext_resource type="Script" path="res://Scenes/Death.gd" id="5_qfv3r"]
+[ext_resource type="Script" path="res://Scenes/Death_inquisitor.gd" id="5_qfv3r"]
 
 [node name="Inquisitor" type="Node2D" groups=["Inquisitors"]]
 

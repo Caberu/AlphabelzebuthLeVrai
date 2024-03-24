@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjx8yint5edim" path="res://Scenes/DemonName.tscn" id="2_jdnh7"]
 [ext_resource type="Script" path="res://Walk.gd" id="2_o56tq"]
 [ext_resource type="Script" path="res://Scenes/DemonCreator.gd" id="5_7vdbd"]
-[ext_resource type="Script" path="res://Scenes/Death.gd" id="6_bn14m"]
+[ext_resource type="Script" path="res://Scenes/Death_demon.gd" id="6_u70lw"]
 
 [node name="Demon" type="Node2D" groups=["Demons"]]
 
@@ -28,6 +28,6 @@ speed = 30.0
 script = ExtResource("5_7vdbd")
 
 [node name="Death" type="Node2D" parent="."]
-script = ExtResource("6_bn14m")
+script = ExtResource("6_u70lw")
 
 [connection signal="death" from="Damageable" to="Death" method="_on_damageable_death"]
