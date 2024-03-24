@@ -31,6 +31,12 @@ func use_name(name : String):
 	alphabet.remove_word(name)
 	on_use_name.emit()
 
+func set_unavailable_name(name : String, paradi := false):
+	unavailbale_names[name] = paradi
+	
+func set_available_name(name : String):
+	unavailbale_names.erase(name) #???? jsp si ça marche
+
 func is_available_name(name: String) -> bool:
 	return !unavailbale_names.has(name)
 
