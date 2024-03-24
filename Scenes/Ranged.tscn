@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://oc6mkim70jok"]
+
+[ext_resource type="Script" path="res://Scenes/Ranged.gd" id="1_5ml7c"]
+
+[node name="Ranged" type="Node2D"]
+script = ExtResource("1_5ml7c")
+radius = 150.0
+cooldown = 1.0

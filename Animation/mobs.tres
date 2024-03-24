@@ -1,0 +1,30 @@
+[gd_resource type="AnimationLibrary" load_steps=13 format=3 uid="uid://dg6hj5r7vwpuc"]
+
+[ext_resource type="Animation" uid="uid://c80cmnfgh3kgs" path="res://Animation/sprite_animation/templar_run.res" id="1_po1tl"]
+[ext_resource type="Animation" uid="uid://c4d37l6380a01" path="res://Animation/sprite_animation/templar_fight.res" id="2_251jy"]
+[ext_resource type="Animation" uid="uid://c43jkpdygb4be" path="res://Animation/sprite_animation/slime_run.res" id="3_47t7e"]
+[ext_resource type="Animation" uid="uid://2hwvady5u4bo" path="res://Animation/sprite_animation/skeleton_run.res" id="4_cv5vs"]
+[ext_resource type="Animation" uid="uid://fyuhgdfo5f3c" path="res://Animation/sprite_animation/skeleton_fight.res" id="5_drg5b"]
+[ext_resource type="Animation" uid="uid://bxowmdjwp5uyn" path="res://Animation/sprite_animation/minotaure_run.res" id="6_j3ggy"]
+[ext_resource type="Animation" uid="uid://csg4uo0tho2a4" path="res://Animation/sprite_animation/minautore_fight.res" id="7_nffde"]
+[ext_resource type="Animation" uid="uid://c5b8hiuc0kije" path="res://Animation/sprite_animation/mage_run.res" id="8_xtvi0"]
+[ext_resource type="Animation" uid="uid://2hjw475ymak3" path="res://Animation/sprite_animation/mage_fight.res" id="9_8r22e"]
+[ext_resource type="Animation" uid="uid://bjbbsjc8e5nxc" path="res://Animation/sprite_animation/bat_run.res" id="10_sns3b"]
+[ext_resource type="Animation" uid="uid://bnymb4aeottgu" path="res://Animation/sprite_animation/archer_run.res" id="11_8w8lw"]
+[ext_resource type="Animation" uid="uid://cq0ef2xyguhfl" path="res://Animation/sprite_animation/archer_fight.res" id="12_f4vib"]
+
+[resource]
+_data = {
+"archer_fight": ExtResource("12_f4vib"),
+"archer_run": ExtResource("11_8w8lw"),
+"bat_run": ExtResource("10_sns3b"),
+"mage_fight": ExtResource("9_8r22e"),
+"mage_run": ExtResource("8_xtvi0"),
+"minautore_fight": ExtResource("7_nffde"),
+"minotaure_run": ExtResource("6_j3ggy"),
+"skeleton_fight": ExtResource("5_drg5b"),
+"skeleton_run": ExtResource("4_cv5vs"),
+"slime_run": ExtResource("3_47t7e"),
+"templar_fight": ExtResource("2_251jy"),
+"templar_run": ExtResource("1_po1tl")
+}

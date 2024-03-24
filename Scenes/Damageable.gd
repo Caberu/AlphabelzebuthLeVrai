@@ -1,9 +1,11 @@
-extends Node2D
+class_name Damageable extends Node2D
 
 @export var max_hp : int
 
 var health_bar : HealthBar = null
 var hp : int
+
+signal death
 
 func _ready():
 	hp = max_hp
@@ -18,6 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if health_bar != null: health_bar.update_val(hp)
+	if hp <= 0: death.emit()
 	
 func damage(dmg: int):
 	hp = max(0, hp - dmg)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cotgen7ckxbo5"]
+
+[ext_resource type="Script" path="res://Animation/Destroyer.gd" id="1_2sqyt"]
+[ext_resource type="PackedScene" uid="uid://ds1nre8riaej5" path="res://Animation/FlameFX.tscn" id="1_dfu7u"]
+[ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="2_c8wje"]
+
+[node name="FlammeAndShake" type="Node2D"]
+script = ExtResource("1_2sqyt")
+
+[node name="FlameFx" parent="." instance=ExtResource("1_dfu7u")]
+
+[node name="CamShake" parent="." instance=ExtResource("2_c8wje")]
+time = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="ready" from="CamShake" to="CamShake" method="shake"]
+[connection signal="timeout" from="Timer" to="." method="destroy"]
