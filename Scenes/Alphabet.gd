@@ -1,7 +1,7 @@
 class_name Alphabet extends Node2D
 
 var letters_stock := {
-	"A":2,
+	"A":20,
 	"R":3,
 	"T":1
 }
