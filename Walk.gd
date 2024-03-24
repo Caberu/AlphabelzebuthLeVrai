@@ -9,11 +9,12 @@ var anim_string : String
 var moving : bool = true
 
 func _process(delta):
+	if anim_player == null: print("anim is null")
 	if moving:
 		move(delta)
-		anim_player.play(anim_string + "_run.res")
+		anim_player.play("mobs/" + anim_string + "_run")
 	else:
-		anim_player.play(anim_string + "_fight.res")
+		anim_player.play("mobs/" + anim_string + "_fight")
 	
 func move(modifier : float = 1.0):
 	parent.position.x += speed * modifier
