@@ -10,12 +10,22 @@ var attacker_scenes := {
 	AttackerType.RANGED: load("res://Scenes/Ranged.tscn")
 }
 
+var sprite_type := {
+	3: "bat",
+	4: "ghost",
+	5: "skeleton",
+	6: "skeleton",
+	7: "mage",
+	8: "slime",
+	9: "minotaur"
+}
+
 
 func get_hp(demon_name : String) -> int:
 	return int(float(len(demon_name)))
 
 func get_sprite(demon_name : String) -> String:
-	return "templar"
+	return sprite_type[len(demon_name)]
 
 func get_type(demon_name : String) -> AttackerType:
 	return AttackerType.RANGED

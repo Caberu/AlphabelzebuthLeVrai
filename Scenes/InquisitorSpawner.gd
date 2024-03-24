@@ -9,5 +9,7 @@ func _process(delta):
 
 func spawn_inquisitor():
 	var instance : Node2D = inquisitor_scene.instantiate()
+	instance.find_child("Walk").anim_string = "templar"
+	instance.find_child("Sprite").flip_h = true
 	$"../Inquisitors".add_child(instance)
 	instance.global_position = global_position

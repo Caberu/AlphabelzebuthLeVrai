@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cakmet6mwokxa" path="res://Scenes/Damageable.tscn" id="1_3b6n3"]
 [ext_resource type="PackedScene" uid="uid://bjx8yint5edim" path="res://Scenes/DemonName.tscn" id="2_jdnh7"]
 [ext_resource type="Script" path="res://Walk.gd" id="2_o56tq"]
-[ext_resource type="Texture2D" uid="uid://dkmt1khyyvsyb" path="res://Sprites/archer/archer_animation_0001.png" id="3_b0n4a"]
+[ext_resource type="Texture2D" uid="uid://cgqre0hwtwvsm" path="res://Sprites/templar/templar_run/templar_animation_0000.png" id="3_dayw5"]
 [ext_resource type="Script" path="res://Scenes/DemonCreator.gd" id="5_7vdbd"]
 [ext_resource type="Script" path="res://Scenes/Death_demon.gd" id="6_u70lw"]
 [ext_resource type="AnimationLibrary" uid="uid://dg6hj5r7vwpuc" path="res://Animation/mobs.tres" id="7_nkrdu"]
@@ -37,7 +37,7 @@ position = Vector2(13, -30)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("3_b0n4a")
+texture = ExtResource("3_dayw5")
 centered = false
 offset = Vector2(0, -24)
 
