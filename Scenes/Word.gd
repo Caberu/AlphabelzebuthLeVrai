@@ -24,7 +24,7 @@ func update_letter_used():
 		if (!letters_currently_used.has(l.to_upper())):
 			letters_currently_used[l.to_upper()] = 0
 		letters_currently_used[l.to_upper()] = letters_currently_used[l.to_upper()]+1
-	print(letters_currently_used)
+
 
 func use_name(name : String):
 	word = ""
