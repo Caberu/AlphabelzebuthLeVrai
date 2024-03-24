@@ -4,7 +4,7 @@ var idx := 1
 
 var ok := false
 
-var time := 0
+var time := 0.0
 
 func setok():
 	ok = true
@@ -26,6 +26,6 @@ func _process(delta):
 	
 	if (idx == 4):
 		time += delta
-		$"../..".modulate = lerp(Color.WHITE, Color.BLACK, time/3)
+		$"../..".modulate = lerp(Color.WHITE, Color.BLACK, clamp(time/3,0,1))
 		if (time > 3):
 			get_tree().change_scene_to_file("res://Scenes/main.tscn")
