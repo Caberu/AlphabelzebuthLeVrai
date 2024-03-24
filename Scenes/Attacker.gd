@@ -2,6 +2,9 @@ class_name Attacker extends Node2D
 
 @export var enemy_group : String
 @export var radius : float
+@export var cooldown : float
+
+var cooldown_stop : float = 0.0
 
 func get_enemy() -> Node2D:
 	return null

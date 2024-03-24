@@ -4,3 +4,5 @@
 
 [node name="Melee" type="Node2D"]
 script = ExtResource("1_i30w7")
+radius = 50.0
+cooldown = 1.0

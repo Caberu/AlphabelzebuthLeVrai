@@ -1,4 +1,4 @@
-extends Node2D
+class_name Walk extends Node2D
 
 @export var speed : float = 5
 
@@ -12,6 +12,6 @@ func _process(delta):
 func move(modifier : float = 1.0):
 	parent.position.x += speed * modifier
 	
-func toggle_move():
-	moving = !moving
+func toggle_move(val: bool):
+	moving = val
 	
