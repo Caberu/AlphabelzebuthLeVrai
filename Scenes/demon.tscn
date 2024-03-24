@@ -21,6 +21,7 @@ offset = Vector2(0, -24)
 
 [node name="Walk" type="Node2D" parent="."]
 script = ExtResource("2_o56tq")
+speed = 30.0
 
 [node name="DemonCreator" type="Node2D" parent="."]
 script = ExtResource("5_7vdbd")

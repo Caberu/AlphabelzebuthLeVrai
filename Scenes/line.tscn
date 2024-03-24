@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://g533147ngkau"]
+[gd_scene load_steps=3 format=3 uid="uid://g533147ngkau"]
 
 [ext_resource type="PackedScene" uid="uid://dtrwq3et5voj1" path="res://Scenes/portal.tscn" id="1_vapga"]
+[ext_resource type="PackedScene" uid="uid://c53jtbhbfmdsf" path="res://Scenes/InquisitorSpawner.tscn" id="2_d37s3"]
 
 [node name="Line" type="Node2D"]
 
 [node name="Portal" parent="." instance=ExtResource("1_vapga")]
 
 [node name="Demons" type="Node2D" parent="."]
+
+[node name="Inquisitors" type="Node2D" parent="."]
+
+[node name="InquisitorSpawner" parent="." instance=ExtResource("2_d37s3")]
+position = Vector2(668, 0)

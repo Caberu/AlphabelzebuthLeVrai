@@ -1,4 +1,4 @@
-extends Node2D
+class_name Damageable extends Node2D
 
 @export var max_hp : int
 
