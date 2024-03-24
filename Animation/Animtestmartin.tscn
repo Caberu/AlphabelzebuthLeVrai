@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ummbelsaodwn"]
+[gd_scene load_steps=21 format=3 uid="uid://ummbelsaodwn"]
 
 [ext_resource type="Texture2D" uid="uid://c008qhw1gq6n7" path="res://Sprites/bat/bat_animation_0001.png" id="1_r5w0q"]
 [ext_resource type="Animation" uid="uid://bjbbsjc8e5nxc" path="res://Animation/sprite_animation/bat_idle.res" id="2_oktjl"]
@@ -13,6 +13,9 @@
 [ext_resource type="Animation" uid="uid://2hjw475ymak3" path="res://Animation/sprite_animation/mage_fight.res" id="11_v4cns"]
 [ext_resource type="Animation" uid="uid://bnymb4aeottgu" path="res://Animation/sprite_animation/archer_run.res" id="12_omm68"]
 [ext_resource type="Animation" uid="uid://cq0ef2xyguhfl" path="res://Animation/sprite_animation/archer_fight.res" id="13_5s4l1"]
+[ext_resource type="Texture2D" uid="uid://b7dmo2bx25fin" path="res://Sprites/ghost/ghost_0002.png" id="14_3iliu"]
+[ext_resource type="Texture2D" uid="uid://djlk2udcth1jy" path="res://Sprites/ghost/ghost_0000.png" id="15_rgxdn"]
+[ext_resource type="Texture2D" uid="uid://dsvvp0rupxkwo" path="res://Sprites/ghost/ghost_0001.png" id="16_wif5l"]
 
 [sub_resource type="Animation" id="Animation_05nfa"]
 length = 0.001
@@ -29,12 +32,46 @@ tracks/0/keys = {
 "values": [ExtResource("1_r5w0q")]
 }
 
+[sub_resource type="Animation" id="Animation_yq51t"]
+resource_name = "ghost_run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("14_3iliu"), ExtResource("15_rgxdn")]
+}
+
+[sub_resource type="Animation" id="Animation_nnqys"]
+resource_name = "ghost_fight"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_wif5l"), ExtResource("15_rgxdn"), ExtResource("14_3iliu")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b0jab"]
 _data = {
 "RESET": SubResource("Animation_05nfa"),
 "archer_fight": ExtResource("13_5s4l1"),
 "archer_run": ExtResource("12_omm68"),
 "bat_idle": ExtResource("2_oktjl"),
+"ghost_fight": SubResource("Animation_nnqys"),
+"ghost_run": SubResource("Animation_yq51t"),
 "mage_fight": ExtResource("11_v4cns"),
 "mage_run": ExtResource("10_hs3g7"),
 "minautore_fight": ExtResource("9_i37js"),
@@ -56,6 +93,6 @@ autoplay = "bat_idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-40, 24)
+position = Vector2(-40, 0)
 texture = ExtResource("1_r5w0q")
 offset = Vector2(40, -40)
