@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=25 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_dn2nl"]
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
@@ -7,18 +7,20 @@
 [ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="1_ulj3d"]
 [ext_resource type="Texture2D" uid="uid://crs3n6o2uakxf" path="res://Scenes/background_cave_0001.png" id="2_orvhd"]
 [ext_resource type="PackedScene" uid="uid://g533147ngkau" path="res://Scenes/line.tscn" id="3_avtcv"]
+[ext_resource type="Texture2D" uid="uid://be8c87xjy1ccu" path="res://Sprites/door.png" id="4_jv4mj"]
 [ext_resource type="Script" path="res://Scenes/FondNoir.gd" id="4_yhamd"]
 [ext_resource type="Script" path="res://Scenes/IncantationDisplay.gd" id="6_htmfq"]
 [ext_resource type="Script" path="res://Scenes/LetterStockContainer.gd" id="7_dv6vc"]
 [ext_resource type="Script" path="res://Scenes/Alphabet.gd" id="7_od6r7"]
-[ext_resource type="PackedScene" path="res://Scenes/letterUI.tscn" id="8_o77af"]
+[ext_resource type="PackedScene" uid="uid://b0pt6m6wg6k36" path="res://Scenes/letterUI.tscn" id="8_o77af"]
 [ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
 [ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
 [ext_resource type="Texture2D" uid="uid://5aqxi4x1qus" path="res://Sprites/pentacle.png" id="13_vwd2l"]
-[ext_resource type="PackedScene" path="res://Scenes/cam_shake.tscn" id="14_mvhh6"]
+[ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="14_mvhh6"]
 [ext_resource type="Texture2D" uid="uid://bfgdm168toidc" path="res://Sprites/inventory.png" id="18_wkuni"]
-[ext_resource type="PackedScene" uid="uid://rse0v5p5cpor" path="res://Scenes/DemonPreview.tscn" id="19_ijk5w"]
+[ext_resource type="PackedScene" path="res://Scenes/DemonPreview.tscn" id="19_ijk5w"]
+[ext_resource type="Script" path="res://Scenes/PentacleTest.gd" id="20_3vg4p"]
 
 [sub_resource type="Animation" id="Animation_rhceh"]
 resource_name = "BG"
@@ -72,7 +74,20 @@ texture = ExtResource("1_m3me3")
 [node name="Background" type="Sprite2D" parent="Game"]
 texture = ExtResource("1_q6sk5")
 centered = false
+flip_h = true
 metadata/_edit_lock_ = true
+
+[node name="Door" type="Sprite2D" parent="Game/Background"]
+position = Vector2(602, 207)
+texture = ExtResource("4_jv4mj")
+
+[node name="Door2" type="Sprite2D" parent="Game/Background"]
+position = Vector2(602, 130)
+texture = ExtResource("4_jv4mj")
+
+[node name="Door3" type="Sprite2D" parent="Game/Background"]
+position = Vector2(602, 46)
+texture = ExtResource("4_jv4mj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Game/Background"]
 libraries = {
@@ -261,6 +276,7 @@ modulate = Color(0.666667, 0, 0, 1)
 position = Vector2(469, 303)
 scale = Vector2(0.84, 0.84)
 texture = ExtResource("13_vwd2l")
+script = ExtResource("20_3vg4p")
 
 [node name="DemonPreview" parent="." instance=ExtResource("19_ijk5w")]
 position = Vector2(470, 345)

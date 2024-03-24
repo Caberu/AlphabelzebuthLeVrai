@@ -5,10 +5,9 @@ extends Node2D
 var open := false
 var selected := false
 
-@export var portal_on : Texture2D
-@export var portal_off : Texture2D
-
 @onready var word : Word = get_tree().get_first_node_in_group("Word")
+
+var cd := -1.0
 
 
 func _ready():
@@ -21,7 +20,9 @@ func on_update_correctness():
 	update_open()
 
 func update_open():
-	$Sprite2D.texture = portal_on if (open and selected)  else portal_off
+	if (time < cd):
+		return
+	$AnimationPlayer.play("Portail_open" if (open and selected)  else "Portail_close")
 
 func _on_return_key_pressed():
 	if (open and selected):
@@ -41,11 +42,15 @@ func _process(delta):
 	if (Input.is_action_just_pressed("CallName")):
 		_on_return_key_pressed()
 	
+	if (time > cd and cd != -1):
+		cd = -1
+		update_open()
+	
 	time += delta
 	if (selected):
 		$Sprite2D.modulate = Color($Sprite2D.modulate, sin(time*5)/3+0.66)
 	elif (!selected):
-		$Sprite2D.modulate = Color($Sprite2D.modulate, 0.4)
+		$Sprite2D.modulate = Color($Sprite2D.modulate, 0.7)
 
 func instantiate_demon(scene : PackedScene):
 	var instance : Node2D = scene.instantiate()
@@ -57,4 +62,6 @@ func instantiate_demon(scene : PackedScene):
 	$"../Demons".add_child(instance)
 	instance.global_position = global_position
 	instance.global_position.y += 17
-	
+	cd = time + 0.5
+	$AnimationPlayer.play("Portail_burst")
+	$Sprite2D.modulate = Color($Sprite2D.modulate, 1)
