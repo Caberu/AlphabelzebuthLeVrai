@@ -38,6 +38,7 @@ func instantiate_demon(scene : PackedScene):
 	var instance : Node2D = scene.instantiate()
 	var demon_name = word.word.reverse().to_lower()
 	demon_name = demon_name.capitalize()
+	word.set_unavailable_name(demon_name)
 	instance.get_node("DemonCreator").initialize(demon_name)
 	word.use_name(demon_name)
 	$"../Demons".add_child(instance)

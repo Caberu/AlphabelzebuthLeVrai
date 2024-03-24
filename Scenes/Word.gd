@@ -4,6 +4,7 @@ var correct := false
 var word := ""
 @onready var alphabet : Alphabet =  $"../Alphabet"
 
+var unavailbale_names := {} #hash map (en plus, true si il est au paradi)
 var letters_currently_used := {}
 
 signal on_update_correctness
@@ -30,8 +31,17 @@ func use_name(name : String):
 	alphabet.remove_word(name)
 	on_use_name.emit()
 
+func set_unavailable_name(name : String, paradi := false):
+	unavailbale_names[name] = paradi
+	
+func set_available_name(name : String):
+	unavailbale_names.erase(name) #???? jsp si ça marche
+
+func is_available_name(name: String) -> bool:
+	return !unavailbale_names.has(name)
+
 func change_word(new_word : String):
 	word = new_word
-	if (correct != alphabet.check_correctness(word)):
+	if (is_available_name(new_word) and correct != alphabet.check_correctness(word)):
 		correct = !correct
 		on_update_correctness.emit()

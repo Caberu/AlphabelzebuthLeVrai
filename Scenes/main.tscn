@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=15 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
 [ext_resource type="Texture2D" uid="uid://cr4bb3wh6cfjd" path="res://WhiteSquare.png" id="1_m3me3"]
 [ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="1_ulj3d"]
 [ext_resource type="Texture2D" uid="uid://cay3rdbl7j86m" path="res://Sprites/background_cave.png" id="2_5jes4"]
 [ext_resource type="PackedScene" uid="uid://g533147ngkau" path="res://Scenes/line.tscn" id="3_avtcv"]
+[ext_resource type="Script" path="res://Scenes/FondNoir.gd" id="4_yhamd"]
 [ext_resource type="Script" path="res://Scenes/IncantationDisplay.gd" id="6_htmfq"]
 [ext_resource type="Script" path="res://Scenes/LetterStockContainer.gd" id="7_dv6vc"]
 [ext_resource type="Script" path="res://Scenes/Alphabet.gd" id="7_od6r7"]
-[ext_resource type="PackedScene" path="res://Scenes/letterUI.tscn" id="8_o77af"]
+[ext_resource type="PackedScene" uid="uid://b0pt6m6wg6k36" path="res://Scenes/letterUI.tscn" id="8_o77af"]
 [ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
 [ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
@@ -18,14 +19,6 @@
 texture_filter = 1
 
 [node name="Game" type="Node2D" parent="."]
-
-[node name="FondNoir" type="Sprite2D" parent="Game"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-position = Vector2(577, 324.5)
-scale = Vector2(73.625, 41.9375)
-texture = ExtResource("1_m3me3")
-metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Game"]
 texture = ExtResource("2_5jes4")
@@ -43,6 +36,16 @@ metadata/_edit_group_ = true
 [node name="Line3" parent="Game" instance=ExtResource("3_avtcv")]
 position = Vector2(21, 197)
 metadata/_edit_group_ = true
+
+[node name="FX" type="Node2D" parent="." groups=["FX"]]
+
+[node name="FondNoir" type="Sprite2D" parent="FX"]
+modulate = Color(0.223529, 0, 0.0745098, 1)
+position = Vector2(322, 180)
+scale = Vector2(41.75, 23.875)
+texture = ExtResource("1_m3me3")
+script = ExtResource("4_yhamd")
+metadata/_edit_lock_ = true
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -120,6 +123,7 @@ position = Vector2(469, 303)
 scale = Vector2(0.84, 0.84)
 texture = ExtResource("13_vwd2l")
 
+[connection signal="on_true_text_changed" from="UI/TextEdit" to="FX/FondNoir" method="_on_text_edit_text_changed"]
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
 
