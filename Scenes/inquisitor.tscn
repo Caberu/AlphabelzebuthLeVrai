@@ -53,6 +53,7 @@ speed = -10.0
 
 [node name="Melee" parent="." instance=ExtResource("4_54qa1")]
 enemy_group = "Demons"
+dmg = 1
 
 [node name="Death" type="Node2D" parent="."]
 script = ExtResource("5_qfv3r")
