@@ -5,7 +5,7 @@ var alphabet : String = "abcdefghijklmnopqrstuvwxyzaeiouyaeuoiuy"
 
 func get_letter():
 	if (letter == "?"):
-		letter = alphabet[randi_range(0,25)]
+		letter = alphabet[randi_range(0,alphabet.length())]
 	return letter
 
 func _on_damageable_death():
