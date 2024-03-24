@@ -1,5 +1,7 @@
 extends Node2D
 
+var idx := 1
+
 var ok := false
 
 func setok():
@@ -10,4 +12,11 @@ func _process(delta):
 		return
 		
 	if (Input.is_action_just_pressed("Skip")):
-		get_tree().change_scene_to_file("res://Scenes/main.tscn")
+		if (idx==1):
+			$"../AnimationPlayer".play("parcheminClose")
+			idx = 2
+		elif (idx==2):
+			$"../AnimationPlayer".play("parcheminNext")
+			idx = 3
+		elif (idx==3):
+			$"../AnimationPlayer".play("parcheminEnd")
