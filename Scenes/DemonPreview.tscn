@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://rse0v5p5cpor"]
+
+[ext_resource type="AnimationLibrary" uid="uid://dg6hj5r7vwpuc" path="res://Animation/mobs.tres" id="1_60i35"]
+[ext_resource type="Script" path="res://Scenes/PreviewCreator.gd" id="2_o8g7n"]
+[ext_resource type="Texture2D" uid="uid://c008qhw1gq6n7" path="res://Sprites/bat/bat_animation_0001.png" id="3_d0lao"]
+
+[sub_resource type="Animation" id="Animation_oruni"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hacn"]
+_data = {
+"RESET": SubResource("Animation_oruni")
+}
+
+[node name="DemonPreview" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0hacn"),
+"mobs": ExtResource("1_60i35")
+}
+
+[node name="PreviewCreator" type="Node2D" parent="." node_paths=PackedStringArray("anim_player")]
+script = ExtResource("2_o8g7n")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_d0lao")
+offset = Vector2(0, -24)
