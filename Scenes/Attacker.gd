@@ -3,6 +3,7 @@ class_name Attacker extends Node2D
 @export var enemy_group : String
 @export var radius : float
 @export var cooldown : float
+@export var dmg : int
 
 var cooldown_stop : float = 0.0
 

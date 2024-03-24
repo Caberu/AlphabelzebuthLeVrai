@@ -20,15 +20,40 @@ var sprite_type := {
 	9: "minotaur"
 }
 
+var hp_type := {
+	3: 1,
+	4: 2,
+	5: 2,
+	6: 2,
+	7: 1,
+	8: 6,
+	9: 4
+}
+
+var dmg_type := {
+	3: 1,
+	4: 1,
+	5: 2,
+	6: 2,
+	7: 2,
+	8: 0,
+	9: 4
+}
+
+func get_dmg(demon_name : String) -> int:
+	return dmg_type[len(demon_name)]
 
 func get_hp(demon_name : String) -> int:
-	return int(float(len(demon_name)))
+	return hp_type[len(demon_name)]
 
 func get_sprite(demon_name : String) -> String:
 	return sprite_type[len(demon_name)]
 
 func get_type(demon_name : String) -> AttackerType:
-	return AttackerType.RANGED
+	if sprite_type[len(demon_name)] == "mage":
+		return AttackerType.RANGED
+	else:
+		return AttackerType.MELEE
 
 func initialize(demon_name : String):
 	$"..".name = demon_name
@@ -42,6 +67,7 @@ func initialize(demon_name : String):
 	var type : AttackerType = get_type(demon_name)
 	var instance : Attacker = attacker_scenes[type].instantiate()
 	instance.enemy_group = "Inquisitors"
+	instance.dmg = get_dmg(demon_name)
 	$"..".add_child(instance)
 	
 
