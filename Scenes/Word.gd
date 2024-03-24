@@ -31,6 +31,7 @@ func use_name(name : String):
 	alphabet.remove_word(name)
 	on_use_name.emit()
 
+
 func set_unavailable_name(name : String, paradi := false):
 	unavailbale_names[name] = paradi
 	
