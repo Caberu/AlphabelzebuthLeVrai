@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjx8yint5edim"]
+
+[ext_resource type="Script" path="res://Scenes/DemonName.gd" id="1_x15ep"]
+[ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="2_qb4tu"]
+
+[node name="DemonName" type="Node2D"]
+script = ExtResource("1_x15ep")
+
+[node name="NameTag" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -78.0
+offset_right = 78.0
+offset_bottom = 55.0
+pivot_offset = Vector2(78, 0)
+theme = ExtResource("2_qb4tu")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[center]Quoicoubaka"
