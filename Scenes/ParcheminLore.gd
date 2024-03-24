@@ -1,6 +1,6 @@
 extends Node2D
 
-var idx := 1
+var idx := 1.0
 
 var ok := false
 
