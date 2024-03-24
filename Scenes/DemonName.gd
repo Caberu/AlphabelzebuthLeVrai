@@ -17,7 +17,7 @@ func ascend():
 	instance.coord = global_position
 	get_tree().current_scene.add_child(instance)
 	instance.global_position = global_position
-	get_tree().get_first_node_in_group("Word").set_available_name(demon_name,true)
+	get_tree().get_first_node_in_group("Word").set_unavailable_name(demon_name,true)
 	$"..".queue_free()
 	
 func available():
