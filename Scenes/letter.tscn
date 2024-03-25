@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://itngke55wthn" path="res://Scenes/lettre_gfx.tscn" id="2_uu5qj"]
 
 [node name="Letter" type="Node2D"]
-position = Vector2(14, 60)
 script = ExtResource("1_ukme5")
 
 [node name="Button" type="Button" parent="."]
@@ -18,3 +17,4 @@ flat = true
 [node name="LettreGFX" parent="." instance=ExtResource("2_uu5qj")]
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]

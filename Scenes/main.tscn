@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=27 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_dn2nl"]
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dyodb4sllpnq3" path="res://Scenes/background_cave_0000.png" id="1_q6sk5"]
 [ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="1_ulj3d"]
 [ext_resource type="Texture2D" uid="uid://crs3n6o2uakxf" path="res://Scenes/background_cave_0001.png" id="2_orvhd"]
+[ext_resource type="Script" path="res://Scenes/Game.gd" id="2_wmv8i"]
 [ext_resource type="PackedScene" uid="uid://g533147ngkau" path="res://Scenes/line.tscn" id="3_avtcv"]
 [ext_resource type="Texture2D" uid="uid://be8c87xjy1ccu" path="res://Sprites/door.png" id="4_jv4mj"]
 [ext_resource type="Script" path="res://Scenes/FondNoir.gd" id="4_yhamd"]
@@ -64,7 +65,8 @@ _data = {
 texture_filter = 1
 script = ExtResource("1_dn2nl")
 
-[node name="Game" type="Node2D" parent="."]
+[node name="Game" type="Node2D" parent="." groups=["Game"]]
+script = ExtResource("2_wmv8i")
 
 [node name="FondNoir" type="Sprite2D" parent="Game"]
 modulate = Color(0, 0, 0, 1)
@@ -103,6 +105,9 @@ metadata/_edit_group_ = true
 [node name="Line2" parent="Game" instance=ExtResource("3_avtcv")]
 position = Vector2(20, 119)
 metadata/_edit_group_ = true
+
+[node name="Portal" parent="Game/Line2" index="0"]
+selected = true
 
 [node name="Line3" parent="Game" instance=ExtResource("3_avtcv")]
 position = Vector2(21, 197)

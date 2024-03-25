@@ -3,15 +3,16 @@ extends Node2D
 @export var demon_scene : PackedScene
 
 var open := false
-var selected := false
+@export var selected := false
+@export var idx : int
 
 @onready var word : Word = get_tree().get_first_node_in_group("Word")
 
 var cd := -1.0
 
+var just_changed_portal := false
 
 func _ready():
-	
 	word.on_update_correctness.connect(on_update_correctness)
 	on_update_correctness()
 
@@ -29,6 +30,7 @@ func _on_return_key_pressed():
 		instantiate_demon(demon_scene)
 
 func _on_click():
+	just_changed_portal = true
 	var portals = get_tree().get_nodes_in_group("Portal")
 	for p in portals:
 		p.selected = false
@@ -42,15 +44,29 @@ func _process(delta):
 	if (Input.is_action_just_pressed("CallName")):
 		_on_return_key_pressed()
 	
+	if (selected and not just_changed_portal):
+		if (Input.is_action_just_pressed("ui_up")):
+			change_portal(-1)
+			
+		elif (Input.is_action_just_pressed("ui_down")):
+			change_portal(1)
+	just_changed_portal = false
+	
 	if (time > cd and cd != -1):
 		cd = -1
 		update_open()
 	
 	time += delta
 	if (selected):
-		$Sprite2D.modulate = Color($Sprite2D.modulate, sin(time*5)/3+0.66)
+		$Sprite2D.modulate = Color(Color.WHITE, sin(time*5)/3+0.75)
 	elif (!selected):
-		$Sprite2D.modulate = Color($Sprite2D.modulate, 0.7)
+		$Sprite2D.modulate = Color(Color.GRAY, 0.3)
+
+
+func change_portal(dir : int):
+	print(dir)
+	var game : Game = get_tree().get_first_node_in_group("Game")
+	game.lines[(idx+dir+game.lines.size())%game.lines.size()].get_node("Portal")._on_click()
 
 func instantiate_demon(scene : PackedScene):
 	var instance : Node2D = scene.instantiate()

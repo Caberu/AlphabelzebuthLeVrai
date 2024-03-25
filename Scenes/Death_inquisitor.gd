@@ -1,11 +1,11 @@
 extends Node2D
 
 var letter : String = "?"
-var alphabet : String = "abcdefghijklmnopqrstuvwxyzaeiouyaeuoiuy"
+var alphabet : String = "abcdefghijklmnopqrstuvwxyzaeiouyaeuoiuyaeuoiuy"
 
 func get_letter():
 	if (letter == "?"):
-		letter = alphabet[randi_range(0,alphabet.length())]
+		letter = alphabet[randi_range(0,alphabet.length()-1)]
 	return letter
 
 func _on_damageable_death():

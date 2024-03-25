@@ -20,3 +20,6 @@ func _on_button_button_down():
 	sound_player.play()
 	
 	queue_free()
+
+func _on_button_mouse_entered():
+	_on_button_button_down()
