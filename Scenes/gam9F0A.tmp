@@ -1,6 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://chvrceji3rlml"]
 
 [ext_resource type="Texture2D" uid="uid://dt5hqp12yequ1" path="res://Scenes/game_over.png" id="1_lbubw"]
+[ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_mjnxt"]
 [ext_resource type="Texture2D" uid="uid://dm255hmiitua" path="res://Scenes/retry_0001.png" id="2_hpqv3"]
 [ext_resource type="Script" path="res://Scenes/StartButton.gd" id="3_7n85d"]
 [ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="4_upt0f"]
@@ -13,28 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cok3qqmyd7y3t" path="res://Sprites/slime/slime_animation_walk2.png" id="11_pplgr"]
 [ext_resource type="Texture2D" uid="uid://dxoaxh7dy8twb" path="res://Sprites/minotaure/minotaure_animation_attack2.png" id="12_eat8p"]
 [ext_resource type="Texture2D" uid="uid://btkrg4hhgjjvb" path="res://Sprites/minotaure/minotaure_animation_attack1.png" id="13_r14w7"]
-
-[sub_resource type="GDScript" id="GDScript_wwk4c"]
-script/source = "class_name MyMainCamera extends Node2D
-
-var shake_force = 5
-var reset_shake_time := 0.0
-var center : Vector2 = Vector2(0,0)
-
-var time := 0.0
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	time+= delta
-	if (time > reset_shake_time):
-		shake_force = 0
-	global_position = center+Vector2.from_angle(randf()*1000)*shake_force
-
-
-func shake(time : float = 0.5,force : float = 1.0):
-	shake_force = force
-	reset_shake_time = self.time+time
-"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1bme"]
 animations = [{
@@ -109,9 +88,9 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="GameOver" type="Node2D" groups=["Camera"]]
+[node name="GameOver" type="Node2D"]
 texture_filter = 1
-script = SubResource("GDScript_wwk4c")
+script = ExtResource("1_mjnxt")
 
 [node name="GameOver" type="Sprite2D" parent="."]
 texture = ExtResource("1_lbubw")

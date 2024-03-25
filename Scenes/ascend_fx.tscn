@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsqkurp4o7tg6"]
+[gd_scene load_steps=10 format=3 uid="uid://dsqkurp4o7tg6"]
 
 [ext_resource type="Script" path="res://AscendFX.gd" id="1_ykymu"]
 [ext_resource type="Theme" uid="uid://ctmvwfiyofnqq" path="res://DemonicThemeMain.tres" id="2_jhy82"]
+[ext_resource type="AudioStream" uid="uid://bqp27u7kxi7w8" path="res://Sounds/death.ogg" id="3_pykc5"]
 
 [sub_resource type="Animation" id="Animation_m3d1k"]
 resource_name = "GoUp"
@@ -64,6 +65,21 @@ _data = {
 "RESET": SubResource("Animation_lv7s7")
 }
 
+[sub_resource type="Animation" id="Animation_akrp3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_aib8x"]
 resource_name = "clignotement"
 length = 0.2
@@ -79,21 +95,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_akrp3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2t37t"]
@@ -144,5 +145,11 @@ libraries = {
 "": SubResource("AnimationLibrary_2t37t")
 }
 autoplay = "clignotement"
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pykc5")
+volume_db = 5.0
+pitch_scale = 2.0
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="click"]

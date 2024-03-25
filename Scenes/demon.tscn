@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://djl1ybkb07f4j"]
+[gd_scene load_steps=13 format=3 uid="uid://djl1ybkb07f4j"]
 
 [ext_resource type="PackedScene" uid="uid://cakmet6mwokxa" path="res://Scenes/Damageable.tscn" id="1_3b6n3"]
 [ext_resource type="PackedScene" uid="uid://bjx8yint5edim" path="res://Scenes/DemonName.tscn" id="2_jdnh7"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scenes/Death_demon.gd" id="6_u70lw"]
 [ext_resource type="AnimationLibrary" uid="uid://b21vgfkmrbklq" path="res://Animation/mobs.tres" id="7_nkrdu"]
 [ext_resource type="Script" path="res://Scenes/ArriveAtEdge.gd" id="8_s83i2"]
+[ext_resource type="AudioStream" uid="uid://dtl742p2jkfnv" path="res://Sounds/demon_dmg.ogg" id="9_vmjom"]
+[ext_resource type="Script" path="res://Scenes/DMGSFX.gd" id="10_t2se8"]
 
 [sub_resource type="Animation" id="Animation_oruni"]
 length = 0.001
@@ -73,6 +75,12 @@ libraries = {
 [node name="ArriveAtEdge" type="Node2D" parent="."]
 script = ExtResource("8_s83i2")
 
+[node name="DMGSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vmjom")
+volume_db = -10.0
+script = ExtResource("10_t2se8")
+
 [connection signal="death" from="Damageable" to="DemonName" method="available"]
 [connection signal="death" from="Damageable" to="Death" method="_on_damageable_death"]
+[connection signal="on_dmg" from="Damageable" to="DMGSFX" method="play_now"]
 [connection signal="arrive_at_edge" from="ArriveAtEdge" to="DemonName" method="ascend"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75dl36n4s6vq"]
+
+[ext_resource type="Script" path="res://Scenes/GameOver.gd" id="1_ds6qe"]
+[ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="2_vaeny"]
+
+[node name="GameOver" type="Button"]
+z_index = -1000
+z_as_relative = false
+flat = true
+script = ExtResource("1_ds6qe")
+
+[node name="CamShake" parent="." instance=ExtResource("2_vaeny")]
+time = 100.0
+force = 2.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="ready" from="." to="CamShake" method="shake"]
+[connection signal="timeout" from="Timer" to="." method="lose"]

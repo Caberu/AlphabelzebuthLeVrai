@@ -3,6 +3,12 @@ class_name Letter extends Node2D
 @export var letter : String
 @onready var sound_player := AudioStreamPlayer.new()
 
+var alphabet : String = "abcdefghijklmnopqrstuvwxyzaeiouyaeuoiuaeuoiueeeeauio"
+
+func set_random():
+	letter = alphabet[randi_range(0,alphabet.length()-1)]
+	return letter
+
 func _on_button_button_down():
 	var instance = load("res://letter_float_fx.tscn").instantiate()
 	instance.get_node("LettreGFX").lettre = letter

@@ -6,6 +6,7 @@ var health_bar : HealthBar = null
 var hp : int
 
 signal death
+signal on_dmg
 
 func _ready():
 	hp = max_hp
@@ -24,6 +25,7 @@ func _process(delta):
 	
 func damage(dmg: int):
 	hp = max(0, hp - dmg)
+	on_dmg.emit()
 	
 func set_hp(val: int):
 	hp = val

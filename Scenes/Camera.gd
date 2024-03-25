@@ -1,4 +1,4 @@
-class_name MainCamera extends Node2D
+extends Node2D
 
 var shake_force = 5
 var reset_shake_time := 0.0

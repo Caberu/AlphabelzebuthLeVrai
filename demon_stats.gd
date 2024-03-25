@@ -40,12 +40,12 @@ var dmg_type := {
 }
 
 var speed_type := {
-	2:15,
+	2:20,
 	3:9,
 	4:9,
 	5:7,
-	6:3,
-	7:5
+	6:5,
+	7:6
 }
 
 func get_dmg(demon_name : String) -> int:

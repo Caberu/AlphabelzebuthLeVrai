@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=34 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_dn2nl"]
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
@@ -17,13 +17,16 @@
 [ext_resource type="Script" path="res://Scenes/Word.gd" id="9_ljgwk"]
 [ext_resource type="PackedScene" uid="uid://mvakgyrkyibs" path="res://Scenes/letter.tscn" id="10_4klt4"]
 [ext_resource type="Script" path="res://Scenes/LeFrench.gd" id="11_d2and"]
+[ext_resource type="Script" path="res://Scenes/nomInterditUI.gd" id="13_hqg75"]
 [ext_resource type="Texture2D" uid="uid://5aqxi4x1qus" path="res://Sprites/pentacle.png" id="13_vwd2l"]
 [ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="14_mvhh6"]
+[ext_resource type="Script" path="res://Scenes/nomInterdit2.gd" id="14_wnqdv"]
 [ext_resource type="Texture2D" uid="uid://bfgdm168toidc" path="res://Sprites/inventory.png" id="18_wkuni"]
 [ext_resource type="PackedScene" path="res://Scenes/DemonPreview.tscn" id="19_ijk5w"]
 [ext_resource type="Script" path="res://Scenes/PentacleTest.gd" id="20_3vg4p"]
 [ext_resource type="PackedScene" uid="uid://6fq6qo6t747q" path="res://Scenes/bougie.tscn" id="21_sgeow"]
 [ext_resource type="Texture2D" uid="uid://b2r4ui80jm6kj" path="res://Sprites/minotaure/minotaure_animation_walk1.png" id="24_arcrj"]
+[ext_resource type="Script" path="res://Scenes/SpawnLetters.gd" id="27_yl7pd"]
 
 [sub_resource type="Animation" id="Animation_rhceh"]
 resource_name = "BG"
@@ -62,6 +65,44 @@ _data = {
 "RESET": SubResource("Animation_xngtt")
 }
 
+[sub_resource type="Animation" id="Animation_80a5e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d27qv"]
+resource_name = "blink"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0.32549)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lafv4"]
+_data = {
+"RESET": SubResource("Animation_80a5e"),
+"blink": SubResource("Animation_d27qv")
+}
+
 [node name="Main" type="Node2D" groups=["Camera"]]
 texture_filter = 1
 script = ExtResource("1_dn2nl")
@@ -74,6 +115,7 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(315, 185.5)
 scale = Vector2(49.1875, 29.3125)
 texture = ExtResource("1_m3me3")
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Game"]
 texture = ExtResource("1_q6sk5")
@@ -118,6 +160,7 @@ metadata/_edit_group_ = true
 modulate = Color(1, 0.721569, 0.541176, 1)
 position = Vector2(134, 294)
 texture = ExtResource("18_wkuni")
+metadata/_edit_lock_ = true
 
 [node name="FX" type="Node2D" parent="." groups=["FX"]]
 
@@ -172,6 +215,48 @@ theme = ExtResource("1_ulj3d")
 theme_override_font_sizes/font_size = 33
 max_lines_visible = 1
 script = ExtResource("6_htmfq")
+
+[node name="nomInterdit" type="Label" parent="UI"]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = -557.0
+offset_top = -387.0
+offset_right = -290.0
+offset_bottom = -353.0
+theme = ExtResource("1_ulj3d")
+theme_override_font_sizes/font_size = 15
+text = "Nom interdit: Déjà invoqué"
+horizontal_alignment = 1
+max_lines_visible = 1
+script = ExtResource("13_hqg75")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/nomInterdit"]
+libraries = {
+"": SubResource("AnimationLibrary_lafv4")
+}
+autoplay = "blink"
+
+[node name="nomInterdit2" type="Label" parent="UI"]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = -557.0
+offset_top = -387.0
+offset_right = -290.0
+offset_bottom = -353.0
+theme = ExtResource("1_ulj3d")
+theme_override_font_sizes/font_size = 15
+text = "Nom interdit: Redemption"
+horizontal_alignment = 1
+max_lines_visible = 1
+script = ExtResource("14_wnqdv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/nomInterdit2"]
+libraries = {
+"": SubResource("AnimationLibrary_lafv4")
+}
+autoplay = "blink"
 
 [node name="LetterStockContainer" type="HBoxContainer" parent="UI" node_paths=PackedStringArray("alphabet")]
 layout_mode = 0
@@ -316,10 +401,14 @@ texture = ExtResource("1_m3me3")
 
 [node name="Bougie2" parent="PentacleTest" instance=ExtResource("21_sgeow")]
 position = Vector2(1.19049, 38.0952)
-scale = Vector2(1, 1)
+
+[node name="SpawnLetters" type="Node2D" parent="."]
+script = ExtResource("27_yl7pd")
 
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="FX/FondNoir" method="_on_text_edit_text_changed"]
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
+[connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/nomInterdit" method="_on_text_edit_on_true_text_changed"]
+[connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/nomInterdit2" method="_on_text_edit_on_true_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="PentacleTest/DemonPreview/PreviewCreator" method="_on_text_edit_text_changed"]
 [connection signal="on_update_letter_stock" from="Alphabet" to="Alphabet/CamShake" method="shake"]
