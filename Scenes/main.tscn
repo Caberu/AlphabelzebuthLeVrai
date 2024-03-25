@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://oin0x3b3cdf2"]
+[gd_scene load_steps=28 format=3 uid="uid://oin0x3b3cdf2"]
 
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_dn2nl"]
 [ext_resource type="Script" path="res://Scenes/IncantationTextEdit.gd" id="1_igarf"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/DemonPreview.tscn" id="19_ijk5w"]
 [ext_resource type="Script" path="res://Scenes/PentacleTest.gd" id="20_3vg4p"]
 [ext_resource type="PackedScene" uid="uid://6fq6qo6t747q" path="res://Scenes/bougie.tscn" id="21_sgeow"]
+[ext_resource type="Texture2D" uid="uid://b2r4ui80jm6kj" path="res://Sprites/minotaure/minotaure_animation_walk1.png" id="24_arcrj"]
 
 [sub_resource type="Animation" id="Animation_rhceh"]
 resource_name = "BG"
@@ -287,9 +288,6 @@ script = ExtResource("20_3vg4p")
 [node name="Bougie" parent="PentacleTest" instance=ExtResource("21_sgeow")]
 position = Vector2(-47.619, 7.14286)
 
-[node name="Bougie2" parent="PentacleTest" instance=ExtResource("21_sgeow")]
-position = Vector2(1.19048, 38.0952)
-
 [node name="Bougie3" parent="PentacleTest" instance=ExtResource("21_sgeow")]
 position = Vector2(48.8095, 5.95238)
 
@@ -299,18 +297,35 @@ position = Vector2(33.3333, -65.4762)
 [node name="Bougie5" parent="PentacleTest" instance=ExtResource("21_sgeow")]
 position = Vector2(-30.9524, -65.4762)
 
-[node name="DemonPreview" parent="." instance=ExtResource("19_ijk5w")]
-position = Vector2(470, 345)
-scale = Vector2(2, 2)
+[node name="DemonPreview" parent="PentacleTest" instance=ExtResource("19_ijk5w")]
+position = Vector2(1.19049, 50)
+scale = Vector2(2.38095, 2.38095)
+
+[node name="Sprite" parent="PentacleTest/DemonPreview" index="2"]
+visible = true
+z_index = 1
+position = Vector2(3.5, -5)
+texture = ExtResource("24_arcrj")
+
+[node name="FondNoir" type="Sprite2D" parent="PentacleTest/DemonPreview/Sprite" index="0"]
+modulate = Color(0, 0, 0, 0.627451)
+z_index = -1
+position = Vector2(-3.99998, -15.25)
+scale = Vector2(1.5625, 2.09375)
+texture = ExtResource("1_m3me3")
+
+[node name="Bougie2" parent="PentacleTest" instance=ExtResource("21_sgeow")]
+position = Vector2(1.19049, 38.0952)
+scale = Vector2(1, 1)
 
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="FX/FondNoir" method="_on_text_edit_text_changed"]
 [connection signal="on_true_text_changed" from="UI/TextEdit" to="UI/IncantationDisplay" method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="UI/TextEdit" to="UI/TextEdit" method="_on_text_changed"]
-[connection signal="text_changed" from="UI/TextEdit" to="DemonPreview/PreviewCreator" method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="UI/TextEdit" to="PentacleTest/DemonPreview/PreviewCreator" method="_on_text_edit_text_changed"]
 [connection signal="on_update_letter_stock" from="Alphabet" to="Alphabet/CamShake" method="shake"]
 
 [editable path="Game/Line"]
 [editable path="Game/Line/Portal"]
 [editable path="Game/Line2"]
 [editable path="Game/Line3"]
-[editable path="DemonPreview"]
+[editable path="PentacleTest/DemonPreview"]

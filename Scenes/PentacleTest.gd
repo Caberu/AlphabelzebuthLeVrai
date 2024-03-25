@@ -1,10 +1,13 @@
 extends Sprite2D
 
 
-@export var bougies := []
-
-func _ready():
-	bougies = get_children()
+@onready var bougies := [
+	$Bougie,
+	$Bougie2,
+	$Bougie3,
+	$Bougie4,
+	$Bougie5
+]
 
 func lose_health():
 	if (bougies.size() == 1):
@@ -13,6 +16,6 @@ func lose_health():
 	
 	var a = bougies.pop_back()
 	a.off()
-		
+
 func lose():
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")

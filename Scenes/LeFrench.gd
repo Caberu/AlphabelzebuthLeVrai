@@ -17,4 +17,4 @@ func load_file(path):
 
 func word_valid(word : String):
 	word = word.to_upper()
-	return word.length()>=3 and frhash.has(word)
+	return word.length()>=2 and frhash.has(word)

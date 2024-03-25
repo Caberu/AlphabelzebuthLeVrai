@@ -64,7 +64,6 @@ func _process(delta):
 
 
 func change_portal(dir : int):
-	print(dir)
 	var game : Game = get_tree().get_first_node_in_group("Game")
 	game.lines[(idx+dir+game.lines.size())%game.lines.size()].get_node("Portal")._on_click()
 

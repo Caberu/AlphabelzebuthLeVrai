@@ -1,7 +1,7 @@
 extends Node2D
 
 var letter : String = "?"
-var alphabet : String = "abcdefghijklmnopqrstuvwxyzaeiouyaeuoiuyaeuoiuy"
+var alphabet : String = "abcdefghijklmnopqrstuvwxyzaeiouyaeuoiuaeuoiueeee"
 
 func get_letter():
 	if (letter == "?"):
