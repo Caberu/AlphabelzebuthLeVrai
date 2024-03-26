@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var inquisitor_scene : PackedScene = load("res://Scenes/inquisitor.tscn")
 
+var spawn_tick := 0.0
 
 enum AttackerType {
 	MELEE,
@@ -34,8 +35,13 @@ func get_type(val : int) -> AttackerType:
 		return AttackerType.MELEE
 
 func _process(delta):
-	if randf() < 0.05*delta:
-		spawn_inquisitor()
+	#if randf() < 0.05*delta:
+		#spawn_inquisitor()
+	if Time.get_ticks_msec() > spawn_tick:
+		spawn_tick = Time.get_ticks_msec()+1000
+		if randi_range(0, 100) < 10:
+			spawn_inquisitor()
+		
 
 func spawn_inquisitor():
 	var val : int = randi_range(0, 7)

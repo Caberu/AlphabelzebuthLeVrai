@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d084u16r3h0qm" path="res://Scenes/start_buton2_0001.png" id="3_yr2qm"]
 [ext_resource type="Texture2D" uid="uid://b5fjxgqrx5c6k" path="res://Sprites/parchemin/parchemin_animation1.png" id="4_f632s"]
 [ext_resource type="Animation" uid="uid://b26i37jbnobn0" path="res://parchemin2.res" id="5_0bfyi"]
-[ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="5_0lp6l"]
+[ext_resource type="PackedScene" path="res://Scenes/cam_shake.tscn" id="5_0lp6l"]
 [ext_resource type="Texture2D" uid="uid://cy4qelsbir1ni" path="res://Sprites/parchemin2/7.png" id="5_xtdwf"]
 [ext_resource type="Script" path="res://Scenes/MoveUp.gd" id="6_2tlpp"]
 [ext_resource type="Script" path="res://Scenes/ParcheminLore.gd" id="6_vip2t"]
