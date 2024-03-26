@@ -21,6 +21,7 @@ func _process(delta):
 	if (time >= 1.1):
 		$"../Voice".play()
 		$"../papier".play()
+		$"../nomInterdit2".show()
 		queue_free()
 		on_open_parchemin.emit()
 		$"../ParcheminLore".setok()

@@ -58,7 +58,6 @@ func spawn_inquisitor():
 	var instance2 : Attacker = attacker_scenes[type].instantiate()
 	instance2.enemy_group = "Demons"
 	instance2.dmg = get_dmg(val)
-	instance2.cooldown = 1
 	instance.add_child(instance2)
 	
 	$"../Inquisitors".add_child(instance)

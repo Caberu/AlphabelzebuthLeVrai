@@ -109,7 +109,7 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="GameOver" type="Node2D" groups=["Camera"]]
+[node name="GameOver" type="Node2D"]
 texture_filter = 1
 script = SubResource("GDScript_wwk4c")
 

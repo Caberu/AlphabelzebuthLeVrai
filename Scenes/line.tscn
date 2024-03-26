@@ -12,4 +12,4 @@
 [node name="Inquisitors" type="Node2D" parent="."]
 
 [node name="InquisitorSpawner" parent="." instance=ExtResource("2_d37s3")]
-position = Vector2(668, 0)
+position = Vector2(617, 0)

@@ -14,6 +14,6 @@ func _process(delta):
 		if (global_position.x > 580):
 			arrive_at_edge.emit()
 	elif (side == SIDE.INQUISITION):
-		if (global_position.x < 60):
+		if (global_position.x < 20):
 			arrive_at_edge.emit()
 	

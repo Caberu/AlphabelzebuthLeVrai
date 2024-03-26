@@ -9,14 +9,21 @@ var time := 0.0
 func setok():
 	ok = true
 
+func skip_lore():
+	if (idx==1):
+		$"../AnimationPlayer".play("parcheminClose")
+		idx = 2
+		
+
 func _process(delta):
 	if (!ok):
 		return
-		
+
 	if (Input.is_action_just_pressed("Skip")):
 		if (idx==1):
 			$"../AnimationPlayer".play("parcheminClose")
 			idx = 2
+			$"../Voice".stop()
 		elif (idx==2):
 			$"../AnimationPlayer".play("parcheminNext")
 			idx = 3

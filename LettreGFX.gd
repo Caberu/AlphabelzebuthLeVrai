@@ -6,7 +6,8 @@ var lettre : String = ""
 func _ready():
 	if (lettre.is_empty() && $".." is Letter):
 		lettre = $"..".letter
-	set_gfx(lettre)
+	if (lettre != ""):
+		set_gfx(lettre)
 	
 func set_gfx(lettre : String):
 	self.lettre = lettre

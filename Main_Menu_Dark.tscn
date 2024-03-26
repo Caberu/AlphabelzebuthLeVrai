@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmmm60myq1ygv"]
+
+[ext_resource type="Texture2D" uid="uid://c5s8vaqt5e10y" path="res://Scenes/ecran_titre_final.png" id="1_c0c86"]
+[ext_resource type="PackedScene" uid="uid://ds1nre8riaej5" path="res://Animation/FlameFX.tscn" id="2_wk0am"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="EcranTitreFinal" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_c0c86")
+centered = false
+
+[node name="FlameFx" parent="." instance=ExtResource("2_wk0am")]
+position = Vector2(187, 264)
+
+[node name="FlameFx2" parent="." instance=ExtResource("2_wk0am")]
+position = Vector2(428, 265)
