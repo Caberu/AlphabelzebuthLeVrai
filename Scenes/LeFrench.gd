@@ -16,7 +16,10 @@ var simplification := {
 }
 
 func _ready():
-	load_file(path)
+	if (Paradi.french.is_empty()):
+		load_file(path)
+	else :
+		frhash = Paradi.french
 
 func load_file(path):
 	print("Start loading...")
@@ -25,6 +28,7 @@ func load_file(path):
 	for i in content:
 		frhash[simplify(i).to_upper()] = i.length()
 	print("Loaded all fucking french words!")
+	Paradi.french = frhash
 	return
 
 func simplify(word : String) -> String:

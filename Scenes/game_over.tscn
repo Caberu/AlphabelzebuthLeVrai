@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://chvrceji3rlml"]
+[gd_scene load_steps=21 format=3 uid="uid://chvrceji3rlml"]
 
 [ext_resource type="Texture2D" uid="uid://dt5hqp12yequ1" path="res://Scenes/game_over.png" id="1_lbubw"]
 [ext_resource type="Texture2D" uid="uid://dm255hmiitua" path="res://Scenes/retry_0001.png" id="2_hpqv3"]
-[ext_resource type="Script" path="res://Scenes/StartButton.gd" id="3_7n85d"]
+[ext_resource type="Script" path="res://Scenes/retruBut.gd" id="3_qsplx"]
+[ext_resource type="Script" path="res://Scenes/gameoverStartAnim.gd" id="4_sei4f"]
 [ext_resource type="PackedScene" uid="uid://b6p6o73chfl3k" path="res://Scenes/cam_shake.tscn" id="4_upt0f"]
 [ext_resource type="Texture2D" uid="uid://bygt84rs3dgjv" path="res://Sprites/bat/bat_animation_0002.png" id="5_kx6n2"]
 [ext_resource type="Texture2D" uid="uid://c008qhw1gq6n7" path="res://Sprites/bat/bat_animation_0001.png" id="6_4703q"]
@@ -120,8 +121,11 @@ centered = false
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(225, 271)
 texture = ExtResource("2_hpqv3")
+script = ExtResource("3_qsplx")
 
 [node name="Start" type="Button" parent="."]
+z_index = -100
+z_as_relative = false
 offset_left = 144.0
 offset_top = 241.0
 offset_right = 308.0
@@ -131,7 +135,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="StartAnim" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(223, 288)
-script = ExtResource("3_7n85d")
+script = ExtResource("4_sei4f")
 sprite = NodePath("../Sprite2D")
 
 [node name="CamShake" parent="." instance=ExtResource("4_upt0f")]
@@ -141,27 +145,33 @@ force = 2.0
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(476, 106)
 sprite_frames = SubResource("SpriteFrames_p1bme")
+autoplay = "default"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
 position = Vector2(421, 122)
 sprite_frames = SubResource("SpriteFrames_3gkob")
+autoplay = "default"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
 position = Vector2(493, 264)
 sprite_frames = SubResource("SpriteFrames_ufgw1")
+autoplay = "default"
 frame_progress = 0.304616
 flip_h = true
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
 position = Vector2(441, 287)
 sprite_frames = SubResource("SpriteFrames_nfonb")
+autoplay = "default"
 frame_progress = 0.84045
 flip_h = true
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
 position = Vector2(379, 259)
 sprite_frames = SubResource("SpriteFrames_0blwi")
+autoplay = "default"
 frame_progress = 0.548406
 
+[connection signal="button_down" from="Start" to="Sprite2D" method="_on_start_button_down"]
 [connection signal="button_down" from="Start" to="StartAnim" method="_on_button_down"]
 [connection signal="ready" from="CamShake" to="CamShake" method="shake"]

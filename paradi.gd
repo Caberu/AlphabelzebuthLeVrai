@@ -1,5 +1,6 @@
 extends Node
 
+var french := {}
 var unavailable := {}
 
 func has_ascended(name) -> bool:
