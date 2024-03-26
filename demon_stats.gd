@@ -57,13 +57,13 @@ func get_hp(demon_name : String) -> int:
 	return demon_name.length()
 
 func get_sprite(demon_name : String) -> String:
-	return sprite_type[len(demon_name)]
+	return sprite_type[clamp(len(demon_name),2,7)]
 
 func get_speed(demon_name : String):
-	return speed_type[len(demon_name)]
+	return speed_type[clamp(len(demon_name),2,7)]
 
 func get_type(demon_name : String) -> AttackerType:
-	if sprite_type[len(demon_name)] == "mage":
+	if sprite_type[clamp(len(demon_name),2,7)] == "mage":
 		return AttackerType.RANGED
 	else:
 		return AttackerType.MELEE
